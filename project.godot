@@ -17,12 +17,18 @@ config/icon="res://assets/icon.png"
 
 [display]
 
+window/size/viewport_width=1280
+window/size/viewport_height=720
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")
+
+[gui]
+
+theme/custom_font="uid://dpet5nvyih0ux"
 
 [physics]
 

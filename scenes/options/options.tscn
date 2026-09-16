@@ -1,5 +1,25 @@
 [gd_scene format=3 uid="uid://bj2eq34f3jrnw"]
 
+[ext_resource type="Script" uid="uid://cg1h7x1etoocg" path="res://scenes/options/button.gd" id="1_ac427"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_nfrx5"]
+font_size = 96
+font_color = Color(0.9019608, 0.64705884, 0.18039216, 1)
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nfrx5"]
+bg_color = Color(0.9019608, 0.64705884, 0.18039216, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_0hvcy"]
+font_size = 64
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l3cfh"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+expand_margin_right = 24.0
+
 [node name="Options" type="Control" unique_id=1450150018]
 layout_mode = 3
 anchors_preset = 15
@@ -7,3 +27,81 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="title" type="Label" parent="." unique_id=583010038]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -149.0
+offset_top = 24.0
+offset_right = 149.0
+offset_bottom = 82.0
+grow_horizontal = 2
+text = "SETTINGS"
+label_settings = SubResource("LabelSettings_nfrx5")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1639108256]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=149272644]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.101960786, 0.101960786, 0.101960786, 1)
+metadata/_edit_lock_ = true
+
+[node name="hsplit" type="HSplitContainer" parent="." unique_id=1033399183]
+custom_minimum_size = Vector2(800, 480)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -200.0
+offset_right = 400.0
+offset_bottom = 280.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="left" type="VBoxContainer" parent="hsplit" unique_id=2065422251]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 32
+
+[node name="up" type="PanelContainer" parent="hsplit/left" unique_id=200231563]
+custom_minimum_size = Vector2(0, 72)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_nfrx5")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="hsplit/left/up" unique_id=789397404]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="hsplit/left/up/HBoxContainer" unique_id=2013402593]
+layout_mode = 2
+size_flags_horizontal = 6
+text = "UP"
+label_settings = SubResource("LabelSettings_0hvcy")
+horizontal_alignment = 1
+
+[node name="up" type="Button" parent="hsplit/left/up/HBoxContainer" unique_id=1762915786]
+custom_maximum_size = Vector2(-1, 60)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 64
+theme_override_styles/normal = SubResource("StyleBoxFlat_l3cfh")
+text = "W"
+alignment = 0
+script = ExtResource("1_ac427")
+
+[node name="right" type="VBoxContainer" parent="hsplit" unique_id=2017666159]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1

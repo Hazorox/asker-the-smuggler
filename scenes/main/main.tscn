@@ -3,6 +3,10 @@
 [ext_resource type="Texture2D" uid="uid://c1brcpe5mbyag" path="res://assets/main_menu_pizza.png" id="1_iuonh"]
 [ext_resource type="Script" uid="uid://bywh4opbfgeqg" path="res://scenes/main/menu.gd" id="1_k2fmo"]
 [ext_resource type="FontFile" uid="uid://cst2tvib54xqs" path="res://assets/title.ttf" id="2_k2fmo"]
+[ext_resource type="FontFile" uid="uid://dpet5nvyih0ux" path="res://assets/main.ttf" id="4_l3cfh"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_0hvcy"]
+font_size = 64
 
 [sub_resource type="LabelSettings" id="LabelSettings_nfrx5"]
 font = ExtResource("2_k2fmo")
@@ -52,6 +56,10 @@ func _on_pressed() -> void:
 	get_tree().quit()
 "
 
+[sub_resource type="LabelSettings" id="LabelSettings_tr8j5"]
+font = ExtResource("4_l3cfh")
+font_size = 32
+
 [node name="Main" type="Control" unique_id=284846191]
 layout_mode = 3
 anchors_preset = 15
@@ -61,11 +69,21 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_k2fmo")
 
+[node name="line" type="Label" parent="." unique_id=1529572933]
+layout_mode = 0
+offset_left = 558.0
+offset_top = 273.0
+offset_right = 1188.0
+offset_bottom = 331.0
+text = "Smuggle..Or..STARVE"
+label_settings = SubResource("LabelSettings_0hvcy")
+horizontal_alignment = 1
+
 [node name="title" type="Label" parent="." unique_id=528884008]
 layout_mode = 0
-offset_left = 482.0
+offset_left = 505.0
 offset_top = 138.0
-offset_right = 1252.0
+offset_right = 1275.0
 offset_bottom = 234.0
 text = "Asker The Smuggler"
 label_settings = SubResource("LabelSettings_nfrx5")
@@ -134,7 +152,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.103743516, 0.10374353, 0.103743516, 1)
+color = Color(0.101960786, 0.101960786, 0.101960786, 1)
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer" unique_id=17770017]
 offset_left = -38.0
@@ -143,6 +163,16 @@ offset_right = 573.0
 offset_bottom = 754.0
 texture = ExtResource("1_iuonh")
 expand_mode = 1
+
+[node name="Label" type="Label" parent="." unique_id=1825384301]
+layout_mode = 0
+offset_left = 634.0
+offset_top = 678.0
+offset_right = 1132.0
+offset_bottom = 707.0
+text = "By Hazoro -- Vii -- AboEl5yr"
+label_settings = SubResource("LabelSettings_tr8j5")
+horizontal_alignment = 1
 
 [connection signal="pressed" from="option" to="option" method="_on_pressed"]
 [connection signal="pressed" from="start" to="start" method="_on_pressed"]

@@ -1,5 +1,8 @@
 [gd_scene format=3 uid="uid://1nu5wlarpkig"]
 
+[ext_resource type="PackedScene" uid="uid://dbmi1w1lwrptk" path="res://scenes/askar/askar.tscn" id="1_hyk8p"]
+[ext_resource type="PackedScene" uid="uid://dt1uj8gkdl1h6" path="res://scenes/dialog/canvas_layer.tscn" id="2_iuonh"]
+
 [node name="Main" type="Control" unique_id=284846191]
 layout_mode = 3
 anchors_preset = 15
@@ -7,3 +10,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="askar" parent="." unique_id=1547958870 instance=ExtResource("1_hyk8p")]
+
+[node name="Camera2D" type="Camera2D" parent="askar" unique_id=1432448288]
+zoom = Vector2(3, 3)
+
+[node name="CanvasLayer" parent="askar" unique_id=2121916254 instance=ExtResource("2_iuonh")]

@@ -21,7 +21,7 @@ func _ready()->void:
 	pressed.connect(on_pressed)
 
 func on_pressed()->void:
-	get_tree().change_scene_to_file(\"res://scenes/main/main.tscn\")
+	get_tree().change_scene_to_file(\"res://scenes/ui/pause_menu.tscn\")
 "
 
 [sub_resource type="LabelSettings" id="LabelSettings_nfrx5"]
@@ -207,7 +207,6 @@ horizontal_alignment = 1
 
 [node name="up" type="Button" parent="hsplit/left/up/HBoxContainer" unique_id=1762915786]
 custom_minimum_size = Vector2(128, 72)
-custom_maximum_size = Vector2(-1, 60)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
@@ -237,7 +236,6 @@ horizontal_alignment = 1
 
 [node name="down" type="Button" parent="hsplit/left/down/HBoxContainer" unique_id=1739058523]
 custom_minimum_size = Vector2(128, 72)
-custom_maximum_size = Vector2(-1, 60)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
@@ -267,7 +265,6 @@ horizontal_alignment = 1
 
 [node name="interact" type="Button" parent="hsplit/left/interact/HBoxContainer" unique_id=1478215245]
 custom_minimum_size = Vector2(128, 72)
-custom_maximum_size = Vector2(-1, 60)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
@@ -298,7 +295,6 @@ horizontal_alignment = 1
 
 [node name="fullscreen" type="Button" parent="hsplit/left/fullscreen/HBoxContainer" unique_id=1736937028]
 custom_minimum_size = Vector2(128, 72)
-custom_maximum_size = Vector2(-1, 60)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
@@ -334,7 +330,6 @@ horizontal_alignment = 1
 
 [node name="left" type="Button" parent="hsplit/right/left/HBoxContainer" unique_id=1990692093]
 custom_minimum_size = Vector2(128, 72)
-custom_maximum_size = Vector2(-1, 60)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
@@ -364,7 +359,6 @@ horizontal_alignment = 1
 
 [node name="right" type="Button" parent="hsplit/right/right/HBoxContainer" unique_id=930727388]
 custom_minimum_size = Vector2(128, 72)
-custom_maximum_size = Vector2(-1, 60)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
@@ -394,7 +388,6 @@ horizontal_alignment = 1
 
 [node name="run" type="Button" parent="hsplit/right/interact/HBoxContainer" unique_id=999559937]
 custom_minimum_size = Vector2(128, 72)
-custom_maximum_size = Vector2(-1, 60)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
@@ -425,7 +418,6 @@ horizontal_alignment = 1
 
 [node name="up" type="Button" parent="hsplit/right/extra_idk/HBoxContainer" unique_id=425565397]
 custom_minimum_size = Vector2(128, 72)
-custom_maximum_size = Vector2(-1, 60)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4

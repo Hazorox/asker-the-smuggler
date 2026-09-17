@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://dbmi1w1lwrptk"]
 
 [ext_resource type="Texture2D" uid="uid://pc4o50h4qady" path="res://assets/askar/happy/happy4.png" id="1_1baxo"]
-[ext_resource type="Texture2D" uid="uid://cqv2h8tqx4me4" path="res://assets/askar/idle/idle5.png" id="1_2dpgw"]
+[ext_resource type="Texture2D" uid="uid://cqv2h8tqx4me4" path="res://assets/characters/askar/idle/idle5.png" id="1_2dpgw"]
 [ext_resource type="Script" uid="uid://d6q2l2rw0lnl" path="res://scenes/askar/askar.gd" id="1_iju3k"]
-[ext_resource type="Texture2D" uid="uid://bk6a7btxclsij" path="res://assets/askar/walking/walking2.png" id="2_bggno"]
+[ext_resource type="Texture2D" uid="uid://bk6a7btxclsij" path="res://assets/characters/askar/walking/walking2.png" id="2_bggno"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_11ec3"]
 atlas = ExtResource("1_1baxo")
@@ -105,7 +105,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_j0f6v")
 }],
-"loop": 1,
+"loop": true,
 "name": &"happy",
 "speed": 6.0
 }, {
@@ -122,7 +122,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_x4whh")
 }],
-"loop": 1,
+"loop": true,
 "name": &"idle",
 "speed": 4.0
 }, {
@@ -151,19 +151,19 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_woa18")
 }],
-"loop": 1,
+"loop": true,
 "name": &"walking",
 "speed": 8.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s7wsd"]
-radius = 7.0
-height = 38.0
+radius = 4.0
+height = 26.0
 
-[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1547958870]
+[node name="Asker" type="CharacterBody2D" unique_id=1547958870]
 script = ExtResource("1_iju3k")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2105046501]
+[node name="AskerAnimatedSprite" type="AnimatedSprite2D" parent="." unique_id=2105046501]
 position = Vector2(0, -32)
 sprite_frames = SubResource("SpriteFrames_s7wsd")
 animation = &"walking"
@@ -171,5 +171,6 @@ autoplay = "idle"
 frame_progress = 0.4782806
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1132118668]
-position = Vector2(-1, -20)
+position = Vector2(-1, -4)
+rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_s7wsd")

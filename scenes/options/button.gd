@@ -2,6 +2,7 @@ extends Button
 
 @onready var active :=false
 func _ready()->void:
+	pressed.connect(on_pressed)
 	for action in InputMap.get_actions():
 		print(name)
 		if action==name:
@@ -11,3 +12,5 @@ func _ready()->void:
 				if e is InputEventKey:
 					text = (e as InputEventKey).as_text_physical_keycode()
 			break
+func on_pressed()->void:
+	active = not active

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c3d6jr0epagox"]
 
 [ext_resource type="Texture2D" uid="uid://8b8p7mt77x4w" path="res://assets/backgrounds/ATS(The Corridor).png" id="1_8b604"]
+[ext_resource type="Script" uid="uid://dfuvmbp0g3t7w" path="res://scenes/school_parts/corridor.gd" id="1_66glq"]
 [ext_resource type="PackedScene" uid="uid://dbmi1w1lwrptk" path="res://scenes/askar/askar.tscn" id="2_324hq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8b604"]
@@ -10,6 +11,7 @@ size = Vector2(10, 810)
 size = Vector2(1400, 10)
 
 [node name="Corridor" type="Node2D" unique_id=1465989484]
+script = ExtResource("1_66glq")
 
 [node name="CorridorSprite" type="Sprite2D" parent="." unique_id=2097979130]
 scale = Vector2(5.0039063, 5.6328125)

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bj2eq34f3jrnw"]
 
-[ext_resource type="Script" uid="uid://cg1h7x1etoocg" path="res://scenes/options/button.gd" id="1_ac427"]
+[ext_resource type="Script" uid="uid://cn6csi6m5ftyk" path="res://scenes/options/options_menu.gd" id="1_kmbin"]
 [ext_resource type="Texture2D" uid="uid://t8eqv5dtmbe7" path="res://assets/arrow right.svg" id="1_qe4tn"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n6pvc"]
@@ -13,16 +13,6 @@ bg_color = Color(0.83569616, 0.00017659173, 9.645402e-05, 1)
 bg_color = Color(0.67230505, 1.8169359e-06, 3.85046e-07, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ijenv"]
-
-[sub_resource type="GDScript" id="GDScript_2ba0u"]
-script/source = "extends Button
-
-func _ready()->void:
-	pressed.connect(on_pressed)
-
-func on_pressed()->void:
-	get_tree().change_scene_to_file(\"res://scenes/ui/pause_menu.tscn\")
-"
 
 [sub_resource type="LabelSettings" id="LabelSettings_nfrx5"]
 font_size = 96
@@ -60,6 +50,39 @@ corner_radius_top_left = 64
 corner_radius_top_right = 64
 corner_radius_bottom_right = 64
 corner_radius_bottom_left = 64
+
+[sub_resource type="GDScript" id="GDScript_025dt"]
+script/source = "extends Button
+
+@onready var active :=false
+func _ready()->void:
+	pressed.connect(on_pressed)
+	for action in InputMap.get_actions():
+		print(name)
+		if action==name:
+			var events := InputMap.action_get_events(action)
+			if events.size()>0:
+				var e := events[0]
+				if e is InputEventKey:
+					text = (e as InputEventKey).as_text_physical_keycode()
+			break
+
+func on_pressed()->void:
+	text=\"?\"
+	active = not active
+
+func _input(event: InputEvent) -> void:
+	if active:
+		if (event is InputEventKey || (event is InputEventMouseButton && event.pressed )):
+			if event.keycode == KEY_ESCAPE:
+				active=false
+				text= InputMap.action_get_events(name)[0].as_text().trim_suffix(\" - Physical\")
+				return
+			InputMap.action_erase_events(name)
+			InputMap.action_add_event(name,event)
+			text=event.as_text()
+			active=false
+"
 
 [sub_resource type="LabelSettings" id="LabelSettings_ac427"]
 font_size = 40
@@ -114,6 +137,16 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_kmbin")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1435570805]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.078431375, 0.078431375, 0.078431375, 1)
 
 [node name="back" type="Button" parent="." unique_id=896734418]
 layout_mode = 1
@@ -140,7 +173,6 @@ text = "BACK"
 icon = ExtResource("1_qe4tn")
 icon_alignment = 2
 expand_icon = true
-script = SubResource("GDScript_2ba0u")
 
 [node name="title" type="Label" parent="." unique_id=583010038]
 layout_mode = 1
@@ -164,7 +196,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.101960786, 0.101960786, 0.101960786, 1)
+color = Color(0.078431375, 0.078431375, 0.078431375, 1)
 metadata/_edit_lock_ = true
 
 [node name="hsplit" type="HSplitContainer" parent="." unique_id=1033399183]
@@ -217,7 +249,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_qe4tn")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_025dt")
 theme_override_styles/hover = SubResource("StyleBoxFlat_kmbin")
 text = "W"
-script = ExtResource("1_ac427")
+script = SubResource("GDScript_025dt")
 
 [node name="down" type="PanelContainer" parent="hsplit/left" unique_id=262412809]
 custom_minimum_size = Vector2(0, 72)
@@ -246,7 +278,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_qe4tn")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_025dt")
 theme_override_styles/hover = SubResource("StyleBoxFlat_kmbin")
 text = "W"
-script = ExtResource("1_ac427")
+script = SubResource("GDScript_025dt")
 
 [node name="interact" type="PanelContainer" parent="hsplit/left" unique_id=1088111710]
 custom_minimum_size = Vector2(0, 72)
@@ -275,7 +307,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_qe4tn")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_025dt")
 theme_override_styles/hover = SubResource("StyleBoxFlat_kmbin")
 text = "W"
-script = ExtResource("1_ac427")
+script = SubResource("GDScript_025dt")
 
 [node name="fullscreen" type="PanelContainer" parent="hsplit/left" unique_id=2084594360]
 custom_minimum_size = Vector2(0, 72)
@@ -340,7 +372,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_qe4tn")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_025dt")
 theme_override_styles/hover = SubResource("StyleBoxFlat_kmbin")
 text = "W"
-script = ExtResource("1_ac427")
+script = SubResource("GDScript_025dt")
 
 [node name="right" type="PanelContainer" parent="hsplit/right" unique_id=1767870123]
 custom_minimum_size = Vector2(0, 72)
@@ -369,7 +401,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_qe4tn")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_025dt")
 theme_override_styles/hover = SubResource("StyleBoxFlat_kmbin")
 text = "W"
-script = ExtResource("1_ac427")
+script = SubResource("GDScript_025dt")
 
 [node name="interact" type="PanelContainer" parent="hsplit/right" unique_id=2016499008]
 custom_minimum_size = Vector2(0, 72)
@@ -398,7 +430,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_qe4tn")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_025dt")
 theme_override_styles/hover = SubResource("StyleBoxFlat_kmbin")
 text = "W"
-script = ExtResource("1_ac427")
+script = SubResource("GDScript_025dt")
 
 [node name="extra_idk" type="PanelContainer" parent="hsplit/right" unique_id=2092944969]
 custom_minimum_size = Vector2(0, 72)
@@ -428,4 +460,6 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_qe4tn")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_025dt")
 theme_override_styles/hover = SubResource("StyleBoxFlat_kmbin")
 text = "w"
-script = ExtResource("1_ac427")
+script = SubResource("GDScript_025dt")
+
+[connection signal="pressed" from="back" to="." method="_on_back_pressed"]

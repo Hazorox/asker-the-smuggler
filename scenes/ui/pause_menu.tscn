@@ -1,0 +1,326 @@
+[gd_scene format=3 uid="uid://db4tjx5ly3nle"]
+
+[ext_resource type="Script" uid="uid://dkfohp05u45b8" path="res://scenes/ui/pause_menu.gd" id="1_6tw0m"]
+[ext_resource type="Texture2D" uid="uid://hbna4wubyg8o" path="res://assets/food/FalafelAndVeggies.png" id="2_0lmf7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f6eus"]
+atlas = ExtResource("2_0lmf7")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8uki6"]
+atlas = ExtResource("2_0lmf7")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0bnpd"]
+atlas = ExtResource("2_0lmf7")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_pu0qw"]
+load_path = "res://.godot/imported/FalafelSandwich.png-70cfd1ff1dfb9fe663a84e90333ade0c.ctex"
+
+[node name="PauseMenu" type="CanvasLayer" unique_id=804126370]
+process_mode = 3
+script = ExtResource("1_6tw0m")
+
+[node name="Control" type="Control" parent="." unique_id=2052338572]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control" unique_id=971606155]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.078431375, 0.078431375, 0.078431375, 1)
+
+[node name="Title" type="MarginContainer" parent="Control" unique_id=528295483]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 360
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 360
+theme_override_constants/margin_bottom = 520
+
+[node name="Paused" type="Label" parent="Control/Title" unique_id=1530159680]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 0.1764706, 1)
+theme_override_font_sizes/font_size = 144
+text = "PAUSED"
+
+[node name="Texture" type="Control" parent="Control" unique_id=1799373023]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Tomato" type="TextureRect" parent="Control/Texture" unique_id=487525237]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 170.0
+offset_top = 41.0
+offset_right = -982.0
+offset_bottom = -551.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_f6eus")
+
+[node name="Tomato2" type="TextureRect" parent="Control/Texture" unique_id=171481717]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1172.0
+offset_top = 220.0
+offset_right = 20.0
+offset_bottom = -372.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 2.6179938
+texture = SubResource("AtlasTexture_f6eus")
+
+[node name="Tomato3" type="TextureRect" parent="Control/Texture" unique_id=617134377]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 898.0
+offset_top = 454.0
+offset_right = -254.0
+offset_bottom = -138.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.2617994
+texture = SubResource("AtlasTexture_f6eus")
+
+[node name="Tomato4" type="TextureRect" parent="Control/Texture" unique_id=301098714]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 709.00006
+offset_top = 285.99997
+offset_right = -442.99994
+offset_bottom = -306.00003
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.3089969
+texture = SubResource("AtlasTexture_f6eus")
+
+[node name="Lettuce" type="TextureRect" parent="Control/Texture" unique_id=1607528196]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 82.0
+offset_top = 187.0
+offset_right = -1070.0
+offset_bottom = -405.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_8uki6")
+
+[node name="Lettuce2" type="TextureRect" parent="Control/Texture" unique_id=457560355]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1097.0
+offset_top = 251.99997
+offset_right = -55.0
+offset_bottom = -340.00003
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.2617994
+texture = SubResource("AtlasTexture_8uki6")
+
+[node name="Lettuce3" type="TextureRect" parent="Control/Texture" unique_id=27432252]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 485.00003
+offset_top = 371.00006
+offset_right = -667.0
+offset_bottom = -220.99994
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.7853982
+texture = SubResource("AtlasTexture_8uki6")
+
+[node name="Lettuce4" type="TextureRect" parent="Control/Texture" unique_id=831310546]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1256.0
+offset_top = 640.99994
+offset_right = 104.0
+offset_bottom = 48.99994
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -3.6651917
+texture = SubResource("AtlasTexture_8uki6")
+
+[node name="Falafel" type="TextureRect" parent="Control/Texture" unique_id=433934173]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 172.0
+offset_top = 546.0
+offset_right = -980.0
+offset_bottom = -46.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_0bnpd")
+
+[node name="Falafel2" type="TextureRect" parent="Control/Texture" unique_id=335603164]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 371.0
+offset_top = 320.0
+offset_right = -781.0
+offset_bottom = -272.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -2.0943952
+texture = SubResource("AtlasTexture_0bnpd")
+
+[node name="Falafel3" type="TextureRect" parent="Control/Texture" unique_id=352196945]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 743.0
+offset_top = 301.0
+offset_right = -409.0
+offset_bottom = -291.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.2617994
+texture = SubResource("AtlasTexture_0bnpd")
+
+[node name="Buttons" type="Control" parent="Control" unique_id=911981762]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Resume" type="TextureButton" parent="Control/Buttons" unique_id=164241264]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -720.0
+offset_top = -89.0
+offset_right = -240.0
+offset_bottom = 181.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = SubResource("CompressedTexture2D_pu0qw")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Control/Buttons/Resume" unique_id=535921278]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 27.0
+offset_bottom = 27.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.47700185, 0.2677317, 0.01763299, 1)
+theme_override_font_sizes/font_size = 64
+text = "Resume"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Exit" type="TextureButton" parent="Control/Buttons" unique_id=1901690212]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -242.0
+offset_top = 122.0
+offset_right = 238.0
+offset_bottom = 392.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = SubResource("CompressedTexture2D_pu0qw")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Control/Buttons/Exit" unique_id=1215077258]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 27.0
+offset_bottom = 27.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.47700185, 0.2677317, 0.01763299, 1)
+theme_override_font_sizes/font_size = 64
+text = "Exit"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Options" type="TextureButton" parent="Control/Buttons" unique_id=435020336]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 256.0
+offset_top = -74.0
+offset_right = 739.0
+offset_bottom = 199.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = SubResource("CompressedTexture2D_pu0qw")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Control/Buttons/Options" unique_id=572015901]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 27.0
+offset_bottom = 27.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.47700185, 0.2677317, 0.01763299, 1)
+theme_override_font_sizes/font_size = 64
+text = "options"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="Control/Buttons/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="Control/Buttons/Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="Control/Buttons/Options" to="." method="_on_options_pressed"]

@@ -1,0 +1,236 @@
+[gd_scene format=3 uid="uid://dshonkr3mx8hm"]
+
+[ext_resource type="Script" uid="uid://ccqgfvmpc7we3" path="res://scenes/ui/game_over_screen.gd" id="1_dnrai"]
+[ext_resource type="Texture2D" uid="uid://hbna4wubyg8o" path="res://assets/food/FalafelAndVeggies.png" id="2_sopbp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bllgf"]
+atlas = ExtResource("2_sopbp")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xra47"]
+atlas = ExtResource("2_sopbp")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_sopbp"]
+load_path = "res://.godot/imported/CrepeSandwich.png-edfd432cf74e716bb43666a4edd475b8.ctex"
+
+[node name="GameOverScreen" type="CanvasLayer" unique_id=943597825]
+process_mode = 3
+script = ExtResource("1_dnrai")
+
+[node name="GameOver" type="Control" parent="." unique_id=860435406]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="GameOver" unique_id=49911129]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.078431375, 0.078431375, 0.078431375, 1)
+
+[node name="TitleContainer" type="MarginContainer" parent="GameOver" unique_id=54691196]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -222.0
+offset_right = 222.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 350
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 350
+theme_override_constants/margin_bottom = 600
+
+[node name="Title" type="Label" parent="GameOver/TitleContainer" unique_id=808223234]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.59442014, 0.00025846213, 0.59441596, 1)
+theme_override_font_sizes/font_size = 80
+text = "The Smuggle failed"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Texture" type="Control" parent="GameOver" unique_id=1491000413]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Tomato" type="TextureRect" parent="GameOver/Texture" unique_id=343827333]
+layout_mode = 0
+offset_left = 139.0
+offset_top = 503.0
+offset_right = 263.0
+offset_bottom = 627.0
+texture = SubResource("AtlasTexture_bllgf")
+
+[node name="Tomato2" type="TextureRect" parent="GameOver/Texture" unique_id=2000034370]
+layout_mode = 0
+offset_left = 479.0
+offset_top = 495.0
+offset_right = 603.0
+offset_bottom = 619.0
+texture = SubResource("AtlasTexture_bllgf")
+
+[node name="Tomato3" type="TextureRect" parent="GameOver/Texture" unique_id=1874142526]
+layout_mode = 0
+offset_left = 670.0
+offset_top = 169.0
+offset_right = 794.0
+offset_bottom = 293.0
+texture = SubResource("AtlasTexture_bllgf")
+
+[node name="Tomato4" type="TextureRect" parent="GameOver/Texture" unique_id=518995422]
+layout_mode = 0
+offset_left = 1063.0
+offset_top = 535.0
+offset_right = 1187.0
+offset_bottom = 659.0
+texture = SubResource("AtlasTexture_bllgf")
+
+[node name="Tomato5" type="TextureRect" parent="GameOver/Texture" unique_id=869829773]
+layout_mode = 0
+offset_left = 95.0
+offset_top = 191.0
+offset_right = 219.0
+offset_bottom = 315.0
+rotation = -0.82205683
+texture = SubResource("AtlasTexture_bllgf")
+
+[node name="Luttece" type="TextureRect" parent="GameOver/Texture" unique_id=1304379483]
+layout_mode = 0
+offset_left = 1054.0
+offset_top = 197.0
+offset_right = 1178.0
+offset_bottom = 321.0
+rotation = -1.0471976
+texture = SubResource("AtlasTexture_xra47")
+
+[node name="Luttece2" type="TextureRect" parent="GameOver/Texture" unique_id=1947998461]
+layout_mode = 0
+offset_left = 364.0
+offset_top = 146.0
+offset_right = 488.0
+offset_bottom = 269.99997
+texture = SubResource("AtlasTexture_xra47")
+
+[node name="Luttece3" type="TextureRect" parent="GameOver/Texture" unique_id=240245172]
+layout_mode = 0
+offset_left = 813.0
+offset_top = 641.0
+offset_right = 937.0
+offset_bottom = 765.0
+rotation = -3.1415927
+texture = SubResource("AtlasTexture_xra47")
+
+[node name="Luttece4" type="TextureRect" parent="GameOver/Texture" unique_id=379423613]
+layout_mode = 0
+offset_left = 185.0
+offset_top = 310.00003
+offset_right = 309.0
+offset_bottom = 434.00003
+rotation = 1.8325958
+texture = SubResource("AtlasTexture_xra47")
+
+[node name="Luttece5" type="TextureRect" parent="GameOver/Texture" unique_id=803768170]
+layout_mode = 0
+offset_left = 1210.0
+offset_top = 383.00003
+offset_right = 1334.0
+offset_bottom = 507.0
+rotation = -5.4977875
+texture = SubResource("AtlasTexture_xra47")
+
+[node name="FriedChicken" type="TextureRect" parent="GameOver/Texture" unique_id=1210341380]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Buttons" type="Control" parent="GameOver" unique_id=1342671654]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Restart" type="TextureButton" parent="GameOver/Buttons" unique_id=317789684]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 120.0
+offset_top = 240.0
+offset_right = -648.0
+offset_bottom = -192.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = SubResource("CompressedTexture2D_sopbp")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="GameOver/Buttons/Restart" unique_id=385004150]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -98.5
+offset_top = -10.0
+offset_right = 98.5
+offset_bottom = 34.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 48
+text = "Restart"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="MainMenu" type="TextureButton" parent="GameOver/Buttons" unique_id=2013358412]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 720.0
+offset_top = 240.0
+offset_right = -48.0
+offset_bottom = -192.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = SubResource("CompressedTexture2D_sopbp")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="GameOver/Buttons/MainMenu" unique_id=899631331]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -98.5
+offset_top = -15.5
+offset_right = 98.5
+offset_bottom = 75.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 48
+text = "Main
+Menu"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[connection signal="pressed" from="GameOver/Buttons/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="GameOver/Buttons/MainMenu" to="." method="_on_main_menu_pressed"]

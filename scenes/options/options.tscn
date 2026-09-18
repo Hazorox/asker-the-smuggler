@@ -1,0 +1,465 @@
+[gd_scene format=3 uid="uid://bj2eq34f3jrnw"]
+
+[ext_resource type="Script" uid="uid://cn6csi6m5ftyk" path="res://scenes/options/options_menu.gd" id="1_kmbin"]
+[ext_resource type="Texture2D" uid="uid://t8eqv5dtmbe7" path="res://assets/arrow right.svg" id="1_qe4tn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n6pvc"]
+bg_color = Color(0.41568628, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nntrl"]
+bg_color = Color(0.83569616, 0.00017659173, 9.645402e-05, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gmx52"]
+bg_color = Color(0.67230505, 1.8169359e-06, 3.85046e-07, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ijenv"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_nfrx5"]
+font_size = 96
+font_color = Color(0.9019608, 0.64705884, 0.18039216, 1)
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nfrx5"]
+bg_color = Color(0.9019608, 0.64705884, 0.18039216, 1)
+corner_radius_top_left = 32
+corner_radius_bottom_left = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_0hvcy"]
+font_size = 48
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qe4tn"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 64
+corner_radius_top_right = 64
+corner_radius_bottom_right = 64
+corner_radius_bottom_left = 64
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_025dt"]
+bg_color = Color(0.5936382, 0.41763157, 0.07359912, 1)
+corner_radius_top_left = 64
+corner_radius_top_right = 64
+corner_radius_bottom_right = 64
+corner_radius_bottom_left = 64
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kmbin"]
+bg_color = Color(0.32156864, 0.21960784, 0.023529412, 1)
+corner_radius_top_left = 64
+corner_radius_top_right = 64
+corner_radius_bottom_right = 64
+corner_radius_bottom_left = 64
+
+[sub_resource type="GDScript" id="GDScript_025dt"]
+script/source = "extends Button
+
+@onready var active :=false
+func _ready()->void:
+	pressed.connect(on_pressed)
+	for action in InputMap.get_actions():
+		print(name)
+		if action==name:
+			var events := InputMap.action_get_events(action)
+			if events.size()>0:
+				var e := events[0]
+				if e is InputEventKey:
+					text = (e as InputEventKey).as_text_physical_keycode()
+			break
+
+func on_pressed()->void:
+	text=\"?\"
+	active = not active
+
+func _input(event: InputEvent) -> void:
+	if active:
+		if (event is InputEventKey || (event is InputEventMouseButton && event.pressed )):
+			if event.keycode == KEY_ESCAPE:
+				active=false
+				text= InputMap.action_get_events(name)[0].as_text().trim_suffix(\" - Physical\")
+				return
+			InputMap.action_erase_events(name)
+			InputMap.action_add_event(name,event)
+			text=event.as_text()
+			active=false
+"
+
+[sub_resource type="LabelSettings" id="LabelSettings_ac427"]
+font_size = 40
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="GDScript" id="GDScript_0hvcy"]
+resource_name = "fullscreen"
+script/source = "extends Button
+
+@onready var activated = false
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pressed.connect(on_pressed)
+
+
+func on_pressed()->void:
+	activated = not activated
+	if activated:
+		text=\"ON\"
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+	else:
+		text=\"OFF\"
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_MAXIMIZED)
+"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ac427"]
+bg_color = Color(0.9019608, 0.64705884, 0.18039216, 1)
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bcrey"]
+bg_color = Color(0.9019608, 0.64705884, 0.18039216, 1)
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g56r3"]
+bg_color = Color(0.9019608, 0.64705884, 0.18039216, 1)
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f2ajo"]
+bg_color = Color(0.9019608, 0.64705884, 0.18039216, 1)
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+
+[node name="Options" type="Control" unique_id=1450150018]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kmbin")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1435570805]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.078431375, 0.078431375, 0.078431375, 1)
+
+[node name="back" type="Button" parent="." unique_id=896734418]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -128.0
+offset_top = -92.0
+offset_right = 128.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.9019608, 0.64705884, 0.18039216, 1)
+theme_override_colors/font_pressed_color = Color(0.9019608, 0.64705884, 0.18039216, 1)
+theme_override_colors/font_hover_color = Color(0.9019608, 0.64705884, 0.18039216, 1)
+theme_override_font_sizes/font_size = 64
+theme_override_styles/normal = SubResource("StyleBoxFlat_n6pvc")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_nntrl")
+theme_override_styles/hover = SubResource("StyleBoxFlat_gmx52")
+theme_override_styles/focus = SubResource("StyleBoxFlat_ijenv")
+text = "BACK"
+icon = ExtResource("1_qe4tn")
+icon_alignment = 2
+expand_icon = true
+
+[node name="title" type="Label" parent="." unique_id=583010038]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -149.0
+offset_top = 24.0
+offset_right = 149.0
+offset_bottom = 82.0
+grow_horizontal = 2
+text = "SETTINGS"
+label_settings = SubResource("LabelSettings_nfrx5")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1639108256]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=149272644]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.078431375, 0.078431375, 0.078431375, 1)
+metadata/_edit_lock_ = true
+
+[node name="hsplit" type="HSplitContainer" parent="." unique_id=1033399183]
+custom_minimum_size = Vector2(800, 480)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -200.0
+offset_right = 400.0
+offset_bottom = 280.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 32
+dragging_enabled = false
+
+[node name="left" type="VBoxContainer" parent="hsplit" unique_id=2065422251]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_constants/separation = 32
+
+[node name="up" type="PanelContainer" parent="hsplit/left" unique_id=200231563]
+custom_minimum_size = Vector2(0, 72)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_nfrx5")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="hsplit/left/up" unique_id=280962835]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="hsplit/left/up/HBoxContainer" unique_id=2013402593]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "UP"
+label_settings = SubResource("LabelSettings_0hvcy")
+horizontal_alignment = 1
+
+[node name="up" type="Button" parent="hsplit/left/up/HBoxContainer" unique_id=1762915786]
+custom_minimum_size = Vector2(128, 72)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 52
+theme_override_styles/normal = SubResource("StyleBoxFlat_qe4tn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_025dt")
+theme_override_styles/hover = SubResource("StyleBoxFlat_kmbin")
+text = "W"
+script = SubResource("GDScript_025dt")
+
+[node name="down" type="PanelContainer" parent="hsplit/left" unique_id=262412809]
+custom_minimum_size = Vector2(0, 72)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_nfrx5")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="hsplit/left/down" unique_id=667246614]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="hsplit/left/down/HBoxContainer" unique_id=256125983]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "DOWN"
+label_settings = SubResource("LabelSettings_0hvcy")
+horizontal_alignment = 1
+
+[node name="down" type="Button" parent="hsplit/left/down/HBoxContainer" unique_id=1739058523]
+custom_minimum_size = Vector2(128, 72)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 52
+theme_override_styles/normal = SubResource("StyleBoxFlat_qe4tn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_025dt")
+theme_override_styles/hover = SubResource("StyleBoxFlat_kmbin")
+text = "W"
+script = SubResource("GDScript_025dt")
+
+[node name="interact" type="PanelContainer" parent="hsplit/left" unique_id=1088111710]
+custom_minimum_size = Vector2(0, 72)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_nfrx5")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="hsplit/left/interact" unique_id=706436498]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="hsplit/left/interact/HBoxContainer" unique_id=1673329523]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "INTERACT"
+label_settings = SubResource("LabelSettings_0hvcy")
+horizontal_alignment = 1
+
+[node name="interact" type="Button" parent="hsplit/left/interact/HBoxContainer" unique_id=1478215245]
+custom_minimum_size = Vector2(128, 72)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 52
+theme_override_styles/normal = SubResource("StyleBoxFlat_qe4tn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_025dt")
+theme_override_styles/hover = SubResource("StyleBoxFlat_kmbin")
+text = "W"
+script = SubResource("GDScript_025dt")
+
+[node name="fullscreen" type="PanelContainer" parent="hsplit/left" unique_id=2084594360]
+custom_minimum_size = Vector2(0, 72)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_nfrx5")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="hsplit/left/fullscreen" unique_id=2104195145]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="hsplit/left/fullscreen/HBoxContainer" unique_id=744641197]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 32
+text = "FULLSCREEN"
+label_settings = SubResource("LabelSettings_ac427")
+horizontal_alignment = 1
+
+[node name="fullscreen" type="Button" parent="hsplit/left/fullscreen/HBoxContainer" unique_id=1736937028]
+custom_minimum_size = Vector2(128, 72)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_qe4tn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_025dt")
+theme_override_styles/hover = SubResource("StyleBoxFlat_kmbin")
+text = "OFF"
+script = SubResource("GDScript_0hvcy")
+
+[node name="right" type="VBoxContainer" parent="hsplit" unique_id=575381557]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_constants/separation = 32
+
+[node name="left" type="PanelContainer" parent="hsplit/right" unique_id=1206628927]
+custom_minimum_size = Vector2(0, 72)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ac427")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="hsplit/right/left" unique_id=1240911791]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="hsplit/right/left/HBoxContainer" unique_id=1025427553]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "LEFT"
+label_settings = SubResource("LabelSettings_0hvcy")
+horizontal_alignment = 1
+
+[node name="left" type="Button" parent="hsplit/right/left/HBoxContainer" unique_id=1990692093]
+custom_minimum_size = Vector2(128, 72)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 52
+theme_override_styles/normal = SubResource("StyleBoxFlat_qe4tn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_025dt")
+theme_override_styles/hover = SubResource("StyleBoxFlat_kmbin")
+text = "W"
+script = SubResource("GDScript_025dt")
+
+[node name="right" type="PanelContainer" parent="hsplit/right" unique_id=1767870123]
+custom_minimum_size = Vector2(0, 72)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_bcrey")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="hsplit/right/right" unique_id=1479082178]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="hsplit/right/right/HBoxContainer" unique_id=870710708]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "RIGHT"
+label_settings = SubResource("LabelSettings_0hvcy")
+horizontal_alignment = 1
+
+[node name="right" type="Button" parent="hsplit/right/right/HBoxContainer" unique_id=930727388]
+custom_minimum_size = Vector2(128, 72)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 52
+theme_override_styles/normal = SubResource("StyleBoxFlat_qe4tn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_025dt")
+theme_override_styles/hover = SubResource("StyleBoxFlat_kmbin")
+text = "W"
+script = SubResource("GDScript_025dt")
+
+[node name="interact" type="PanelContainer" parent="hsplit/right" unique_id=2016499008]
+custom_minimum_size = Vector2(0, 72)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_g56r3")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="hsplit/right/interact" unique_id=1473933060]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="hsplit/right/interact/HBoxContainer" unique_id=563732837]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "RUN"
+label_settings = SubResource("LabelSettings_0hvcy")
+horizontal_alignment = 1
+
+[node name="run" type="Button" parent="hsplit/right/interact/HBoxContainer" unique_id=999559937]
+custom_minimum_size = Vector2(128, 72)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 52
+theme_override_styles/normal = SubResource("StyleBoxFlat_qe4tn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_025dt")
+theme_override_styles/hover = SubResource("StyleBoxFlat_kmbin")
+text = "W"
+script = SubResource("GDScript_025dt")
+
+[node name="extra_idk" type="PanelContainer" parent="hsplit/right" unique_id=2092944969]
+custom_minimum_size = Vector2(0, 72)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_f2ajo")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="hsplit/right/extra_idk" unique_id=1569911435]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="hsplit/right/extra_idk/HBoxContainer" unique_id=1505559021]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 32
+text = "extra_idk"
+label_settings = SubResource("LabelSettings_ac427")
+horizontal_alignment = 1
+
+[node name="up" type="Button" parent="hsplit/right/extra_idk/HBoxContainer" unique_id=425565397]
+custom_minimum_size = Vector2(128, 72)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 52
+theme_override_styles/normal = SubResource("StyleBoxFlat_qe4tn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_025dt")
+theme_override_styles/hover = SubResource("StyleBoxFlat_kmbin")
+text = "w"
+script = SubResource("GDScript_025dt")
+
+[connection signal="pressed" from="back" to="." method="_on_back_pressed"]

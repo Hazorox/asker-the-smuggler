@@ -2,64 +2,116 @@
 
 [ext_resource type="Script" uid="uid://bbd5nsvpy0byi" path="res://scenes/characters/security_gaurd.gd" id="1_pl3f1"]
 [ext_resource type="Texture2D" uid="uid://c235kp56wwy8h" path="res://assets/characters/security_gaurd/SecurityGaurdWalkAnimation.png" id="2_c2yu0"]
+[ext_resource type="Texture2D" uid="uid://b2tftxucnhmy6" path="res://assets/characters/security_gaurd/SecurityGuardIdle.png" id="2_p80q5"]
 
-[sub_resource type="Animation" id="Animation_pl3f1"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0]
-}
+[sub_resource type="AtlasTexture" id="AtlasTexture_ksa4h"]
+atlas = ExtResource("2_p80q5")
+region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="Animation" id="Animation_c2yu0"]
-resource_name = "idle"
-length = 0.8
-loop_mode = 1
-step = 0.2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [0, 1, 2, 3, 4]
-}
+[sub_resource type="AtlasTexture" id="AtlasTexture_325q8"]
+atlas = ExtResource("2_p80q5")
+region = Rect2(64, 0, 64, 64)
 
-[sub_resource type="Animation" id="Animation_p80q5"]
-resource_name = "walk"
-length = 0.8
-loop_mode = 1
-step = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [0, 1, 2, 3, 4, 5, 6, 7]
-}
+[sub_resource type="AtlasTexture" id="AtlasTexture_a6hcw"]
+atlas = ExtResource("2_p80q5")
+region = Rect2(128, 0, 64, 64)
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_p80q5"]
-_data = {
-&"RESET": SubResource("Animation_pl3f1"),
-&"idle": SubResource("Animation_c2yu0"),
-&"walk": SubResource("Animation_p80q5")
-}
+[sub_resource type="AtlasTexture" id="AtlasTexture_xkmni"]
+atlas = ExtResource("2_p80q5")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5mn8k"]
+atlas = ExtResource("2_p80q5")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fvjg4"]
+atlas = ExtResource("2_c2yu0")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a6tgt"]
+atlas = ExtResource("2_c2yu0")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5lup4"]
+atlas = ExtResource("2_c2yu0")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3o6w4"]
+atlas = ExtResource("2_c2yu0")
+region = Rect2(300, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f17qy"]
+atlas = ExtResource("2_c2yu0")
+region = Rect2(400, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aoxge"]
+atlas = ExtResource("2_c2yu0")
+region = Rect2(500, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qxrb3"]
+atlas = ExtResource("2_c2yu0")
+region = Rect2(600, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6secr"]
+atlas = ExtResource("2_c2yu0")
+region = Rect2(700, 0, 100, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hwaep"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ksa4h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_325q8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a6hcw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xkmni")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5mn8k")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fvjg4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a6tgt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5lup4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3o6w4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f17qy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aoxge")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qxrb3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6secr")
+}],
+"loop": true,
+"name": &"walking",
+"speed": 8.0
+}]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ksa4h"]
 radius = 5.0
@@ -68,15 +120,22 @@ height = 26.0
 [node name="SecurityGaurd" type="CharacterBody2D" unique_id=885318586]
 script = ExtResource("1_pl3f1")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=306961904]
-position = Vector2(224, 106)
-texture = ExtResource("2_c2yu0")
-hframes = 8
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1909359057]
-libraries/ = SubResource("AnimationLibrary_p80q5")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=998672357]
+sprite_frames = SubResource("SpriteFrames_hwaep")
+animation = &"walking"
+autoplay = "idle"
+frame_progress = 0.8168395
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=501140652]
 position = Vector2(0, -5)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_ksa4h")
+
+[node name="PlayerDetectionArea" type="Area2D" parent="." unique_id=1020258394]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PlayerDetectionArea" unique_id=195830710]
+position = Vector2(76, 12)
+polygon = PackedVector2Array(-15, -35, -185, -56, -213, -10, -182, 52, -23, 8)
+
+[connection signal="area_entered" from="PlayerDetectionArea" to="." method="_on_player_detection_area_area_entered"]
+[connection signal="area_exited" from="PlayerDetectionArea" to="." method="_on_player_detection_area_area_exited"]

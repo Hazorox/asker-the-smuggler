@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://8b8p7mt77x4w" path="res://assets/backgrounds/ATS(The Corridor).png" id="1_8b604"]
 [ext_resource type="Script" uid="uid://dfuvmbp0g3t7w" path="res://scenes/school_parts/corridor.gd" id="1_66glq"]
 [ext_resource type="PackedScene" uid="uid://dbmi1w1lwrptk" path="res://scenes/askar/askar.tscn" id="2_324hq"]
+[ext_resource type="PackedScene" uid="uid://lt1w7anrq6pe" path="res://scenes/characters/security_gaurd.tscn" id="4_cxjvg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8b604"]
 size = Vector2(10, 810)
@@ -47,6 +48,13 @@ position = Vector2(636, 59)
 position = Vector2(0, 405)
 shape = SubResource("RectangleShape2D_324hq")
 
-[node name="Asker" parent="." unique_id=1547958870 instance=ExtResource("2_324hq")]
+[node name="Characters" type="Node2D" parent="." unique_id=305545911]
+
+[node name="Asker" parent="Characters" unique_id=1547958870 instance=ExtResource("2_324hq")]
+unique_name_in_owner = true
 position = Vector2(241, 562)
 scale = Vector2(5, 5)
+
+[node name="SecurityGaurd" parent="Characters" unique_id=885318586 instance=ExtResource("4_cxjvg")]
+position = Vector2(1054, 473)
+scale = Vector2(4, 4)

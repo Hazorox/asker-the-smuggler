@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://c3ge01pd5rqim"
-path="res://.godot/imported/determination.ttf-a719efbc7c4ed57a5ec33e6db47bc2e8.fontdata"
+path="res://.godot/imported/determination.ttf-6eacf548cf992439593fc33cedab2c32.fontdata"
 
 [deps]
 
-source_file="res://assets/askar/determination.ttf"
-dest_files=["res://.godot/imported/determination.ttf-a719efbc7c4ed57a5ec33e6db47bc2e8.fontdata"]
+source_file="res://assets/characters/askar/determination.ttf"
+dest_files=["res://.godot/imported/determination.ttf-6eacf548cf992439593fc33cedab2c32.fontdata"]
 
 [params]
 

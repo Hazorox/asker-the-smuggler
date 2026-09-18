@@ -1,6 +1,7 @@
 extends CanvasLayer
 
 @onready var panel: Panel = $MarginContainer/Panel
+@onready var box_bg: Panel = $MarginContainer/MarginContainer/Panel
 @onready var start: Label = $MarginContainer/MarginContainer/HBoxContainer/HBoxContainer/start
 @onready var textbox: RichTextLabel = $MarginContainer/MarginContainer/HBoxContainer/HBoxContainer/RichTextLabel
 @onready var end: Label = $MarginContainer/MarginContainer/HBoxContainer/HBoxContainer/end
@@ -22,19 +23,22 @@ var current = STATE.READY
 func _ready() -> void:
 	hide_box()
 	print("ready")
-	add_queue("test")
-	add_queue("test2")
-	add_queue("test3")
+	add_queue("test l jnlj kjsd kjsd jls dkjsd skfl n fljs f ds ", "res://assets/dialog/askar.png", 2)
+	add_queue("test2 qjwebfhkjnfionefjdbifbiwebhiweb", "res://assets/dialog/securitygaurdavater.png", 3)
+	add_queue("test3 jdvnsoeipvmf rvkjn fvlkjne lkkern ljesnf kjlndkj ned jn", "res://assets/dialog/askar.png", 2)
 	
 func hide_box() -> void:
 	panel.hide()
+	box_bg.hide()
 	start.text = ""
 	end.text = ""
 	textbox.text = ""
+	sprite.hide()
 	
 func show_box() -> void:
 	panel.show()
 	start.text = "*"
+	sprite.show()
 
 func add_queue(text, sprite_path: String = "", frames: int = 0) -> void:
 	queue.push_back({
@@ -58,10 +62,12 @@ func add_text() -> void:
 	tween.finished.connect(_on_tween_finished)
 	change_state(STATE.READING)
 	play_audio()
+	play_animation(entry.sp, entry.frames)
 	
 func _on_tween_finished() -> void:
 	end.text = "v"
 	audio.stop()
+	sprite.stop()
 	change_state(STATE.DONE)
 	
 func change_state(next) -> void:
@@ -77,7 +83,7 @@ func change_state(next) -> void:
 func play_audio() -> void:
 	while current == STATE.READING:
 		audio.play()
-		var t = pow(randf(), 2)
+		var t = pow(randf(), 5)
 		var random = lerp(0.05, 0.3, t)
 		await get_tree().create_timer(random).timeout
 
@@ -91,6 +97,7 @@ func _process(delta: float) -> void:
 				textbox.visible_ratio = 1.0
 				tween.stop()
 				audio.stop()
+				sprite.stop()
 				end.text = "v"
 				change_state(STATE.DONE)
 		STATE.DONE:
@@ -98,8 +105,44 @@ func _process(delta: float) -> void:
 				hide_box()
 				change_state(STATE.READY)
 
-func play_animation(sprite_path: String, frames: int) -> void:
-	if sprite_path.is_empty() or frames =< 0:
+func play_animation(sprite_path: String, frames: int):
+	if sprite_path.is_empty() or frames <= 0:
+		return
+	
+	var frame = get_frames(sprite_path, frames)
+	if frame == null:
 		return
 		
+	sprite.sprite_frames = frame.frames
+	sprite.scale = Vector2(148 / frame.frame_size.x, 148/ frame.frame_size.y)
+	sprite.play("talk")
+	
+		
+func get_frames(sprite_path: String, frames: int):
+	var cache_key = "%s:%d" % [sprite_path, frames]
+	if _sprite_frames_cache.has(cache_key):
+		return _sprite_frames_cache[cache_key]
+	
+	var texture: Texture2D = load(sprite_path)
+	if texture == null:
+		return null
+		
+	var h = texture.get_height()
+	var w = texture.get_width() / frames
+	var fs = SpriteFrames.new()
+	fs.add_animation("talk")
+	fs.set_animation_loop("talk", true)
+	fs.set_animation_speed("talk", 8)
+	
+	for i in frames:
+		var at = AtlasTexture.new()
+		at.atlas = texture
+		at.region = Rect2(i * w, 0, w, h)
+		fs.add_frame("talk", at)
+		
+	var data = {"frames": fs, "frame_size": Vector2(w, h)}
+	_sprite_frames_cache[cache_key] = data
+	return data
+	
+	
 	

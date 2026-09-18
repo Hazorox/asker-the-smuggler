@@ -117,6 +117,10 @@ animations = [{
 radius = 5.0
 height = 26.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c2yu0"]
+radius = 18.0
+height = 76.0
+
 [node name="SecurityGaurd" type="CharacterBody2D" unique_id=885318586]
 script = ExtResource("1_pl3f1")
 
@@ -124,7 +128,8 @@ script = ExtResource("1_pl3f1")
 sprite_frames = SubResource("SpriteFrames_hwaep")
 animation = &"walking"
 autoplay = "idle"
-frame_progress = 0.8168395
+frame = 5
+frame_progress = 0.24513845
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=501140652]
 position = Vector2(0, -5)
@@ -135,7 +140,13 @@ shape = SubResource("CapsuleShape2D_ksa4h")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PlayerDetectionArea" unique_id=195830710]
 position = Vector2(76, 12)
-polygon = PackedVector2Array(-15, -35, -185, -56, -213, -10, -182, 52, -23, 8)
+polygon = PackedVector2Array(-76, -41, -185, -56, -213, -10, -182, 52, -103, 32)
+
+[node name="GameOverArea" type="Area2D" parent="." unique_id=2106918020 groups=["security"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameOverArea" unique_id=253174377]
+shape = SubResource("CapsuleShape2D_c2yu0")
+debug_color = Color(0.32604244, 0.49003726, 1, 0.41960785)
 
 [connection signal="area_entered" from="PlayerDetectionArea" to="." method="_on_player_detection_area_area_entered"]
 [connection signal="area_exited" from="PlayerDetectionArea" to="." method="_on_player_detection_area_area_exited"]

@@ -178,9 +178,11 @@ position = Vector2(-1, -4)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_s7wsd")
 
-[node name="Area2D" type="Area2D" parent="." unique_id=354427805 groups=["asker"]]
+[node name="CuaghtDetectionArea" type="Area2D" parent="." unique_id=354427805 groups=["asker"]]
 
-[node name="CollisionPolygon2D" type="CollisionShape2D" parent="Area2D" unique_id=5229296]
+[node name="CollisionPolygon2D" type="CollisionShape2D" parent="CuaghtDetectionArea" unique_id=5229296]
 position = Vector2(1, -24)
 shape = SubResource("CapsuleShape2D_3itqv")
 debug_color = Color(0.9604369, 0, 0.51875675, 0.41960785)
+
+[connection signal="area_entered" from="CuaghtDetectionArea" to="." method="_on_cuaght_detection_area_area_entered"]

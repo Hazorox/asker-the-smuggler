@@ -1,30 +1,22 @@
 class_name Asker
 extends CharacterBody2D
 
-const SPEED := 250
+const GRAVITY: int = 4200
+const JUMP_SPEED: int = -1000
 
 @onready var asker_animated_sprite: AnimatedSprite2D = $AskerAnimatedSprite
 
-var is_player_caught:= false
+var is_player_caught := false
 
-func _process(_delta: float) -> void:
-	var direction := Input.get_vector("left", "right", "up", "down")
-	velocity = direction * SPEED
+func _physics_process(delta: float) -> void:
+	velocity.y += GRAVITY * delta
+	if is_on_floor():
+		if Input.is_action_pressed("jump"):
+			velocity.y = JUMP_SPEED
+		else:
+			asker_animated_sprite.play("walking")
 	move_and_slide()
-	set_animation()
-
-func set_animation() -> void:
-	if velocity.x > 0:
-		asker_animated_sprite.scale.x = 1
-		asker_animated_sprite.play("walking")
-	elif velocity.x < 0:
-		asker_animated_sprite.scale.x = -1
-		asker_animated_sprite.play("walking")
-	elif velocity.y != 0:
-		asker_animated_sprite.play("walking")
-	else:
-		asker_animated_sprite.play("idle")
 
 func _on_cuaght_detection_area_area_entered(area: Area2D) -> void:
 	if area.is_in_group("security"):
-		CaughtDetection.is_player_caught = true
+		CaughtDetection.is_player_caught = false

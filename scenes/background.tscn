@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://7qbkt763filo"]
+
+[ext_resource type="Texture2D" uid="uid://8b8p7mt77x4w" path="res://assets/backgrounds/ATS(The Corridor).png" id="1_bkp1e"]
+
+[node name="Background" type="ParallaxBackground" unique_id=1935634795]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="." unique_id=1222370587]
+motion_mirroring = Vector2(1040, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer" unique_id=406361867]
+scale = Vector2(5.0039063, 5.6328125)
+texture = ExtResource("1_bkp1e")
+centered = false

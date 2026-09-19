@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://dslijwhodlcll"]
+
+[ext_resource type="Texture2D" uid="uid://b5pgtna411tlw" path="res://assets/bin.png" id="1_q36op"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ptqd7"]
+size = Vector2(40, 46)
+
+[node name="TrachBin" type="Area2D" unique_id=460936676]
+scale = Vector2(3, 3)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1496700956]
+texture = ExtResource("1_q36op")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1466042615]
+position = Vector2(-2, 3)
+shape = SubResource("RectangleShape2D_ptqd7")

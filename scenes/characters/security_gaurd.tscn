@@ -121,6 +121,9 @@ height = 26.0
 radius = 18.0
 height = 76.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c2yu0"]
+size = Vector2(26, 20)
+
 [node name="SecurityGaurd" type="CharacterBody2D" unique_id=885318586]
 script = ExtResource("1_pl3f1")
 
@@ -147,6 +150,10 @@ polygon = PackedVector2Array(-76, -41, -185, -56, -213, -10, -182, 52, -103, 32)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GameOverArea" unique_id=253174377]
 shape = SubResource("CapsuleShape2D_c2yu0")
 debug_color = Color(0.32604244, 0.49003726, 1, 0.41960785)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=1338202185]
+position = Vector2(-6, 41)
+shape = SubResource("RectangleShape2D_c2yu0")
 
 [connection signal="area_entered" from="PlayerDetectionArea" to="." method="_on_player_detection_area_area_entered"]
 [connection signal="area_exited" from="PlayerDetectionArea" to="." method="_on_player_detection_area_area_exited"]

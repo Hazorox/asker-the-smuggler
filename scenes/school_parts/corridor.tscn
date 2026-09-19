@@ -4,7 +4,6 @@
 [ext_resource type="Script" uid="uid://dfuvmbp0g3t7w" path="res://scenes/school_parts/corridor.gd" id="1_66glq"]
 [ext_resource type="PackedScene" uid="uid://dbmi1w1lwrptk" path="res://scenes/askar/askar.tscn" id="2_324hq"]
 [ext_resource type="PackedScene" uid="uid://lt1w7anrq6pe" path="res://scenes/characters/security_gaurd.tscn" id="4_cxjvg"]
-[ext_resource type="PackedScene" uid="uid://dt1uj8gkdl1h6" path="res://scenes/dialog/canvas_layer.tscn" id="5_ahym8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8b604"]
 size = Vector2(10, 810)
@@ -59,6 +58,3 @@ scale = Vector2(5, 5)
 [node name="SecurityGaurd" parent="Characters" unique_id=885318586 instance=ExtResource("4_cxjvg")]
 position = Vector2(1054, 473)
 scale = Vector2(4, 4)
-
-[node name="CanvasLayer" parent="." unique_id=2121916254 instance=ExtResource("5_ahym8")]
-layer = 400000

@@ -1,60 +1,36 @@
 [gd_scene format=3 uid="uid://c3d6jr0epagox"]
 
-[ext_resource type="Texture2D" uid="uid://8b8p7mt77x4w" path="res://assets/backgrounds/ATS(The Corridor).png" id="1_8b604"]
 [ext_resource type="Script" uid="uid://dfuvmbp0g3t7w" path="res://scenes/school_parts/corridor.gd" id="1_66glq"]
 [ext_resource type="PackedScene" uid="uid://dbmi1w1lwrptk" path="res://scenes/askar/askar.tscn" id="2_324hq"]
+[ext_resource type="PackedScene" uid="uid://7qbkt763filo" path="res://scenes/background.tscn" id="2_cxjvg"]
 [ext_resource type="PackedScene" uid="uid://lt1w7anrq6pe" path="res://scenes/characters/security_gaurd.tscn" id="4_cxjvg"]
+[ext_resource type="PackedScene" uid="uid://c0go144isim16" path="res://scenes/ui/Lables.tscn" id="5_ahym8"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8b604"]
-size = Vector2(10, 810)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_324hq"]
-size = Vector2(1400, 10)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cxjvg"]
+size = Vector2(2560, 10)
 
 [node name="Corridor" type="Node2D" unique_id=1465989484]
 script = ExtResource("1_66glq")
 
-[node name="CorridorSprite" type="Sprite2D" parent="." unique_id=2097979130]
-scale = Vector2(5.0039063, 5.6328125)
-texture = ExtResource("1_8b604")
-centered = false
-
-[node name="Borders" type="Node2D" parent="." unique_id=56833344]
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Borders" unique_id=982666747]
-position = Vector2(-5, 406)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/StaticBody2D" unique_id=1277330105]
-shape = SubResource("RectangleShape2D_8b604")
-
-[node name="StaticBody2D2" type="StaticBody2D" parent="Borders" unique_id=400928100]
-position = Vector2(1286, 0)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/StaticBody2D2" unique_id=1272870249]
-position = Vector2(0, 405)
-shape = SubResource("RectangleShape2D_8b604")
-
-[node name="StaticBody2D3" type="StaticBody2D" parent="Borders" unique_id=951898118]
-position = Vector2(636, 315)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/StaticBody2D3" unique_id=806666394]
-position = Vector2(0, 405)
-shape = SubResource("RectangleShape2D_324hq")
-
-[node name="StaticBody2D4" type="StaticBody2D" parent="." unique_id=751846052]
-position = Vector2(636, 59)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4" unique_id=2128388122]
-position = Vector2(0, 405)
-shape = SubResource("RectangleShape2D_324hq")
+[node name="Background" parent="." unique_id=1935634795 instance=ExtResource("2_cxjvg")]
 
 [node name="Characters" type="Node2D" parent="." unique_id=305545911]
 
 [node name="Asker" parent="Characters" unique_id=1547958870 instance=ExtResource("2_324hq")]
 unique_name_in_owner = true
-position = Vector2(241, 562)
+position = Vector2(754.00006, 679)
 scale = Vector2(5, 5)
 
 [node name="SecurityGaurd" parent="Characters" unique_id=885318586 instance=ExtResource("4_cxjvg")]
-position = Vector2(1054, 473)
-scale = Vector2(4, 4)
+position = Vector2(401, 481)
+scale = Vector2(-4, 4)
+
+[node name="Ground" type="StaticBody2D" parent="." unique_id=707069634]
+position = Vector2(1214, 721)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground" unique_id=1057216102]
+shape = SubResource("RectangleShape2D_cxjvg")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=292405891]
+
+[node name="Labels" parent="." unique_id=787844091 instance=ExtResource("5_ahym8")]

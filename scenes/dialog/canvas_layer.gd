@@ -8,6 +8,9 @@ extends CanvasLayer
 @onready var audio: AudioStreamPlayer = $AudioStreamPlayer
 @onready var sprite: AnimatedSprite2D = $MarginContainer/MarginContainer/HBoxContainer/MarginContainer/AnimatedSprite2D
 @onready var queue: Array = []
+@onready var choices: Array = []
+@onready var callback: Callable
+@onready var index: int = 0
 
 var tween: Tween
 
@@ -16,6 +19,7 @@ var _sprite_frames_cache: Dictionary = {}
 enum STATE {
 	READY,
 	READING,
+	CHOOSING,
 	DONE,
 }
 var current = STATE.READY
@@ -24,7 +28,7 @@ func _ready() -> void:
 	hide_box()
 	print("ready")
 	add_queue("test l jnlj kjsd kjsd jls dkjsd skfl n fljs f ds ", "res://assets/dialog/askar.png", 2)
-	add_queue("test2 qjwebfhkjnfionefjdbifbiwebhiweb", "res://assets/dialog/securitygaurdavater.png", 3)
+	add_choice_queue(["Yes", "No"], func(i): print("picked index ", i))
 	add_queue("test3 jdvnsoeipvmf rvkjn fvlkjne lkkern ljesnf kjlndkj ned jn", "res://assets/dialog/askar.png", 2)
 	
 func hide_box() -> void:
@@ -42,13 +46,20 @@ func show_box() -> void:
 
 func add_queue(text, sprite_path: String = "", frames: int = 0) -> void:
 	queue.push_back({
+		"type": "text",
 		"text": text,
 		"sp": sprite_path,
 		"frames": frames
 	})
+	
+func add_choice_queue(options: Array, callback: Callable = Callable()) -> void:
+	queue.push_back({
+		"type": "choice",
+		"options": options,
+		"callback": callback
+	})
 
-func add_text() -> void:
-	var entry = queue.pop_front()
+func add_text(entry: Dictionary) -> void:
 	var text: String = entry.text
 	show_box()
 	textbox.text = text
@@ -64,6 +75,32 @@ func add_text() -> void:
 	play_audio()
 	play_animation(entry.sp, entry.frames)
 	
+func add_choice(entry: Dictionary):
+	choices = entry.options
+	callback = entry.callback
+	index = 0
+	show_box()
+	change_state(STATE.CHOOSING)
+	render_choices()
+	
+func render_choices():
+	var lines: Array = []
+	for i in choices.size():
+		var pre
+		if i == index:
+			pre = ">"
+		else:
+			pre = " "
+		lines.append(pre + str(choices[i]))
+	textbox.text = "\n".join(lines)
+	textbox.visible_ratio = 1.0
+	
+func confirm_choice():
+	end.text = "v"
+	change_state(STATE.DONE)
+	if callback.is_valid():
+		callback.call(index)
+	
 func _on_tween_finished() -> void:
 	end.text = "v"
 	audio.stop()
@@ -77,6 +114,8 @@ func change_state(next) -> void:
 			print("ready")
 		STATE.READING:
 			print("read")
+		STATE.CHOOSING:
+			print("choose")
 		STATE.DONE:
 			print("done")
 			
@@ -90,8 +129,12 @@ func play_audio() -> void:
 func _process(delta: float) -> void:
 	match current:
 		STATE.READY:
-			if !queue.is_empty():
-				add_text()
+			var entry = queue.pop_front()
+			match entry.type:
+				"text":
+					add_text(entry)
+				"choice":
+					add_choice(entry)
 		STATE.READING:
 			if Input.is_action_just_pressed("ui_accept"):
 				textbox.visible_ratio = 1.0
@@ -100,6 +143,15 @@ func _process(delta: float) -> void:
 				sprite.stop()
 				end.text = "v"
 				change_state(STATE.DONE)
+		STATE.CHOOSING:
+			if Input.is_action_just_pressed("down"):
+				index = (index + 1) % choices.size()
+				render_choices()
+			if Input.is_action_just_pressed("up"):
+				index = (index - 1 + choices.size()) % choices.size()
+				render_choices()
+			if Input.is_action_just_pressed("ui_accept"):
+				confirm_choice()
 		STATE.DONE:
 			if Input.is_action_just_pressed("ui_accept"):
 				hide_box()

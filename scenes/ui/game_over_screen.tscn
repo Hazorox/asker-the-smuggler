@@ -163,48 +163,14 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Restart" type="TextureButton" parent="GameOver/Buttons" unique_id=317789684]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 120.0
-offset_top = 240.0
-offset_right = -648.0
-offset_bottom = -192.0
-grow_horizontal = 2
-grow_vertical = 2
-texture_normal = SubResource("CompressedTexture2D_sopbp")
-ignore_texture_size = true
-stretch_mode = 5
-
-[node name="Label" type="Label" parent="GameOver/Buttons/Restart" unique_id=385004150]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -98.5
-offset_top = -10.0
-offset_right = 98.5
-offset_bottom = 34.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(1, 0, 0, 1)
-theme_override_font_sizes/font_size = 48
-text = "Restart"
-horizontal_alignment = 1
-vertical_alignment = 2
-
 [node name="MainMenu" type="TextureButton" parent="GameOver/Buttons" unique_id=2013358412]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 720.0
+offset_left = 380.0
 offset_top = 240.0
-offset_right = -48.0
+offset_right = -388.0
 offset_bottom = -192.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -232,5 +198,4 @@ Menu"
 horizontal_alignment = 1
 vertical_alignment = 2
 
-[connection signal="pressed" from="GameOver/Buttons/Restart" to="." method="_on_restart_pressed"]
 [connection signal="pressed" from="GameOver/Buttons/MainMenu" to="." method="_on_main_menu_pressed"]

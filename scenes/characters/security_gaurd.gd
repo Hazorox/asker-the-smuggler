@@ -1,10 +1,9 @@
 extends CharacterBody2D
 
 const GRAVITY: int = 4200
-const JUMP_SPEED: int = -1000
+const JUMP_SPEED: int = 0
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
-
 
 var is_player_caught := false
 

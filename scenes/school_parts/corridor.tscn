@@ -10,7 +10,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cxjvg"]
 size = Vector2(2560, 10)
 
-[node name="Corridor" type="Node2D" unique_id=1465989484]
+[node name="Corridor" type="Node2D" unique_id=1465989484 groups=["obs"]]
 script = ExtResource("1_66glq")
 
 [node name="Background" parent="." unique_id=1935634795 instance=ExtResource("2_cxjvg")]

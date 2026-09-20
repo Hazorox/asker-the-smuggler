@@ -282,22 +282,22 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_kmbin")
 text = "W"
 script = SubResource("GDScript_025dt")
 
-[node name="interact" type="PanelContainer" parent="hsplit/left" unique_id=1088111710]
+[node name="jump" type="PanelContainer" parent="hsplit/left" unique_id=1088111710]
 custom_minimum_size = Vector2(0, 72)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_nfrx5")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="hsplit/left/interact" unique_id=706436498]
+[node name="HBoxContainer" type="HBoxContainer" parent="hsplit/left/jump" unique_id=706436498]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="hsplit/left/interact/HBoxContainer" unique_id=1673329523]
+[node name="Label" type="Label" parent="hsplit/left/jump/HBoxContainer" unique_id=1673329523]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "INTERACT"
+text = "JUMP"
 label_settings = SubResource("LabelSettings_0hvcy")
 horizontal_alignment = 1
 
-[node name="interact" type="Button" parent="hsplit/left/interact/HBoxContainer" unique_id=1478215245]
+[node name="jump" type="Button" parent="hsplit/left/jump/HBoxContainer" unique_id=1478215245]
 custom_minimum_size = Vector2(128, 72)
 layout_mode = 2
 size_flags_horizontal = 6

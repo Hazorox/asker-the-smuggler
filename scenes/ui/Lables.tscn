@@ -9,15 +9,3 @@ theme_override_font_sizes/font_size = 32
 text = "Score:"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="HighscoreLabel" type="Label" parent="." unique_id=1072806233]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -178.0
-offset_bottom = 29.0
-grow_horizontal = 0
-theme_override_font_sizes/font_size = 32
-text = "HIghscore:"
-horizontal_alignment = 1
-vertical_alignment = 1

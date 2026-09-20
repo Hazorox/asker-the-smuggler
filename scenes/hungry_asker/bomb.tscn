@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://gfmpd800ywqw"]
+
+[ext_resource type="Script" uid="uid://7xb8ajuqbjp2" path="res://scenes/hungry_asker/bomb.gd" id="1_5bw6j"]
+[ext_resource type="Texture2D" uid="uid://bi2jk4ur3x02v" path="res://assets/food/boooooomb.png" id="1_qccl4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5bw6j"]
+
+[node name="Bomb" type="Area2D" unique_id=356742575 groups=["Bomb"]]
+scale = Vector2(3.2, 3.2)
+script = ExtResource("1_5bw6j")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1795682438]
+texture = ExtResource("1_qccl4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=956279734]
+position = Vector2(0, 5)
+shape = SubResource("CircleShape2D_5bw6j")

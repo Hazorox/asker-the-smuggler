@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="asker the smuggler"
-run/main_scene="uid://1nu5wlarpkig"
+run/main_scene="uid://c5v5wlest1s48"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://assets/icon.png"
 <<<<<<<HEADrun/main_scene="uid://c3d6jr0epagox"
@@ -19,6 +19,7 @@ config/icon="res://assets/icon.png"
 [autoload]
 
 CaughtDetection="*uid://b125j1j4xgxnb"
+HungryAskerGlobal="*uid://dwb5vi8jtorfc"
 Globals="*uid://bqtnubwbq3tcf"
 
 [display]
@@ -49,6 +50,8 @@ folder_colors={
 asker=""
 security=""
 obs=""
+Bomb=""
+food=""
 
 [gui]
 

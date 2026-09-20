@@ -114,4 +114,3 @@ func game_over() -> void:
 		get_tree().paused = true
 		var gameover_menu = game_oveer_scene.instantiate()
 		add_child(gameover_menu)
-	

@@ -64,27 +64,36 @@ script/source = "extends Button
 
 @onready var active :=false
 func _ready()->void:
+	# Connect on press to change keybind
 	pressed.connect(on_pressed)
+	
+	# Fetch the keybinds for each key for the default text assigned
 	for action in InputMap.get_actions():
 		if action==name:
 			var events := InputMap.action_get_events(action)
 			if events.size()>0:
 				var e := events[0]
 				if e is InputEventKey:
+					
+					# Fetch the physical text keycode
 					text = (e as InputEventKey).as_text_physical_keycode()
 			break
 
 func on_pressed()->void:
+	# Flip active and await input through _input()
 	text=\"?\"
 	active = not active
 
 func _input(event: InputEvent) -> void:
+	# Only function if pressed
 	if active:
 		if (event is InputEventKey || (event is InputEventMouseButton && event.pressed )):
-			if event.keycode == KEY_ESCAPE:
+			# Pass if ESCAPE
+			if event is InputEventMouseButton or event.keycode == KEY_ESCAPE :
 				active=false
 				text= InputMap.action_get_events(name)[0].as_text().trim_suffix(\" - Physical\")
 				return
+			# Override the keybind
 			InputMap.action_erase_events(name)
 			InputMap.action_add_event(name,event)
 			text=event.as_text()

@@ -1,10 +1,12 @@
 extends Control
-
 @onready var buttons :Array[Button]= [$start,$hunt,$option]
 var focused := 0
 
 func _process(delta: float) -> void:
+	# grab focus of the focused index button
 	buttons[focused].grab_focus()
+	
+	# Change focused index based on click and current focused index
 	if Input.is_action_just_pressed("down"):
 		if focused==2:
 			focused=0

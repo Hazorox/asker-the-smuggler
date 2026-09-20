@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://dmfxlf67o0bwp"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_uk4h3"]
+font_size = 32
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ixmuy"]
+font_size = 32
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="GDScript" id="GDScript_nfrx5"]
+script/source = "extends Label
+
+
+func _process(_delta:float)->void:
+	# Change text based on state
+	if Globals.can_sprint:
+		text=\"READY\"
+	else:
+		text=\"COOLING DOWN\"
+"
+
+[node name="Sprint" type="Control" unique_id=626106846]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HSplitContainer" type="HSplitContainer" parent="." unique_id=235423111]
+layout_mode = 1
+offset_right = 182.0
+offset_bottom = 29.0
+
+[node name="Label" type="Label" parent="HSplitContainer" unique_id=1887022527]
+layout_mode = 2
+text = "SPRINT"
+label_settings = SubResource("LabelSettings_uk4h3")
+
+[node name="sprint" type="Label" parent="HSplitContainer" unique_id=1607060027]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_ixmuy")
+script = SubResource("GDScript_nfrx5")

@@ -27,10 +27,16 @@ var current = STATE.READY
 func _ready() -> void:
 	hide_box()
 	print("ready")
-	roll()
+	roll_loop()
 	
+func roll_loop():
+	while true:
+		if queue.is_empty() and current == STATE.READY:
+			roll()
+		await get_tree().create_timer(1.0).timeout
+		
 func roll():
-	var r = 15
+	var r = randi_range(1, 40)
 	if r == 6:
 		add_queue("Try to catch me, old head.", "res://assets/dialog/askar.png", 2)
 		add_queue("Iam goin to kill u, askar", "res://assets/dialog/securitygaurdavater.png", 3)
@@ -42,7 +48,9 @@ func roll():
 		add_queue("Who would u like me to send u", "res://assets/dialog/securitygaurdavater.png", 3)
 		add_choice_queue(["Mr. Atef (the princeple)", "Mrs. Essra (the Dorm keeper)", "Me"],func(i): print("picked index ", i))
 		add_queue("ur choices don't matter to me, I will punish u myself anyways", "res://assets/dialog/securitygaurdavater.png", 3)
-	await get_tree().create_timer(1.0).timeout
+
+func is_active():
+	return current != STATE.READY
 	
 func hide_box() -> void:
 	panel.hide()

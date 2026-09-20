@@ -34,15 +34,7 @@ script/source = "extends Button
 
 
 func _on_pressed() -> void:
-	get_tree().change_scene_to_file(\"res://scenes/options/options.tscn\")
-"
-
-[sub_resource type="GDScript" id="GDScript_6kolt"]
-script/source = "extends Button
-
-
-func _on_pressed() -> void:
-	get_tree().change_scene_to_file(\"res://scenes/school_parts/corridor.tscn\")
+	get_tree().change_scene_to_file(\"res://scenes/nbc/nbc.tscn\")
 "
 
 [sub_resource type="GDScript" id="GDScript_iuonh"]
@@ -54,6 +46,14 @@ script/source = "extends Button
 
 func _on_pressed() -> void:
 	get_tree().quit()
+"
+
+[sub_resource type="GDScript" id="GDScript_6kolt"]
+script/source = "extends Button
+
+
+func _on_pressed() -> void:
+	get_tree().change_scene_to_file(\"res://scenes/char/char.tscn\")
 "
 
 [sub_resource type="LabelSettings" id="LabelSettings_tr8j5"]
@@ -107,24 +107,6 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_byrod")
 text = "OPTION"
 script = SubResource("GDScript_wikwp")
 
-[node name="start" type="Button" parent="." unique_id=2064718522]
-layout_mode = 0
-offset_left = 268.0
-offset_top = 290.0
-offset_right = 369.0
-offset_bottom = 353.0
-theme_override_colors/font_focus_color = Color(0.9019608, 0.67058825, 0.18039216, 1)
-theme_override_colors/font_pressed_color = Color(0.64451134, 0.4530359, 0.086801805, 1)
-theme_override_colors/font_hover_color = Color(0.9019608, 0.64705884, 0.18039216, 1)
-theme_override_fonts/font = SubResource("SystemFont_nfrx5")
-theme_override_font_sizes/font_size = 32
-theme_override_styles/normal = SubResource("StyleBoxFlat_4bq5u")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_l8b2r")
-theme_override_styles/hover = SubResource("StyleBoxFlat_8jd35")
-theme_override_styles/focus = SubResource("StyleBoxFlat_byrod")
-text = "START"
-script = SubResource("GDScript_6kolt")
-
 [node name="exit" type="Button" parent="." unique_id=568032215]
 layout_mode = 0
 offset_left = 325.0
@@ -142,6 +124,24 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_8jd35")
 theme_override_styles/focus = SubResource("StyleBoxFlat_byrod")
 text = "EXIT"
 script = SubResource("GDScript_iuonh")
+
+[node name="start" type="Button" parent="." unique_id=2064718522]
+layout_mode = 0
+offset_left = 268.0
+offset_top = 290.0
+offset_right = 369.0
+offset_bottom = 353.0
+theme_override_colors/font_focus_color = Color(0.9019608, 0.67058825, 0.18039216, 1)
+theme_override_colors/font_pressed_color = Color(0.64451134, 0.4530359, 0.086801805, 1)
+theme_override_colors/font_hover_color = Color(0.9019608, 0.64705884, 0.18039216, 1)
+theme_override_fonts/font = SubResource("SystemFont_nfrx5")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_4bq5u")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_l8b2r")
+theme_override_styles/hover = SubResource("StyleBoxFlat_8jd35")
+theme_override_styles/focus = SubResource("StyleBoxFlat_byrod")
+text = "START"
+script = SubResource("GDScript_6kolt")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1976410164]
 layer = -1
@@ -175,5 +175,5 @@ label_settings = SubResource("LabelSettings_tr8j5")
 horizontal_alignment = 1
 
 [connection signal="pressed" from="option" to="option" method="_on_pressed"]
-[connection signal="pressed" from="start" to="start" method="_on_pressed"]
 [connection signal="pressed" from="exit" to="exit" method="_on_pressed"]
+[connection signal="pressed" from="start" to="start" method="_on_pressed"]

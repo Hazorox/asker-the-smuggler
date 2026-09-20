@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bywh4opbfgeqg" path="res://scenes/main/menu.gd" id="1_rmoel"]
 [ext_resource type="FontFile" uid="uid://cst2tvib54xqs" path="res://assets/title.ttf" id="2_8w1lc"]
 [ext_resource type="Texture2D" uid="uid://cmqmuk08jir16" path="res://assets/food/CrepeSandwich.png" id="3_apx0r"]
+[ext_resource type="Script" uid="uid://5qmt8au57tmf" path="res://scenes/nbc/start.gd" id="4_wgdi7"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_0hvcy"]
 font_size = 64
@@ -26,14 +27,6 @@ bg_color = Color(0.91764706, 0.07058824, 0.05490196, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fd8gc"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
-
-[sub_resource type="GDScript" id="GDScript_dbuk4"]
-script/source = "extends Button
-
-
-func _on_pressed() -> void:
-	get_tree().change_scene_to_file(\"res://scenes/nbc/nbc.tscn\")
-"
 
 [node name="Main" type="Control" unique_id=284846191]
 layout_mode = 3
@@ -101,6 +94,6 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_7nwpt")
 theme_override_styles/hover = SubResource("StyleBoxFlat_k13oo")
 theme_override_styles/focus = SubResource("StyleBoxFlat_fd8gc")
 text = "Ok :("
-script = SubResource("GDScript_dbuk4")
+script = ExtResource("4_wgdi7")
 
 [connection signal="pressed" from="start" to="start" method="_on_pressed"]

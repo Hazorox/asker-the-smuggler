@@ -11,6 +11,7 @@ const MAX_DIFFICULTY : int = 2
 const MIN_OBSTACLE_GAP: int = 700
 const MAX_OBSTACLE_GAP: int = 1200
 @onready var dialog: CanvasLayer = $CanvasLayer
+@onready var asker: Node2D = $Characters/trader
 
 @onready var pause_menu_scene := preload("res://scenes/ui/pause_menu.tscn")
 @onready var game_oveer_scene := preload("res://scenes/ui/game_over_screen.tscn")
@@ -42,7 +43,7 @@ func _process(_delta: float) -> void:
 		speed = MAX_SPEED
 	adjust_difficulty()
 	generate_obs()
-	%Asker.position.x += speed
+	asker.position.x += speed
 	$Characters/SecurityGaurd.position.x += speed
 	$Camera2D.position.x += speed
 	if $Camera2D.position.x - $Ground.position.x > screen_size.x * 1.2:
@@ -50,17 +51,18 @@ func _process(_delta: float) -> void:
 	score += speed
 	show_score()
 	for obs in obstacles:
-		if obs.position.x < %Asker.position.x - 100:
+		if obs.position.x < asker.position.x - 100:
 			obstacles.erase(obs)
 			obs.queue_free()
 	
 
 func new_game() -> void:
+	print("Asker is: ", asker)
 	score = 0
 	game_running = false
 	difficulty = 0
-	%Asker.position = ASKER_START_POS
-	%Asker.velocity = Vector2i(0, 0)
+	asker.position = ASKER_START_POS
+	asker.velocity = Vector2i(0, 0)
 	$Characters/SecurityGaurd.velocity = Vector2i(0, 0)
 	$Characters/SecurityGaurd.position = GAURD_START_POS
 	$Camera2D.position = CAM_START_POS

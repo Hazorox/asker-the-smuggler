@@ -15,15 +15,11 @@ script = ExtResource("1_66glq")
 
 [node name="Background" parent="." unique_id=1935634795 instance=ExtResource("2_cxjvg")]
 
-[node name="CanvasLayer" parent="Background" unique_id=2121916254 instance=ExtResource("6_sicb3")]
-process_mode = 3
-follow_viewport_scale = 571.745
-
 [node name="Characters" type="Node2D" parent="." unique_id=305545911]
 
 [node name="Asker" parent="Characters" unique_id=1547958870 instance=ExtResource("2_324hq")]
 unique_name_in_owner = true
-position = Vector2(754.00006, 679)
+position = Vector2(1050, 643)
 scale = Vector2(5, 5)
 
 [node name="SecurityGaurd" parent="Characters" unique_id=885318586 instance=ExtResource("4_cxjvg")]
@@ -39,3 +35,7 @@ shape = SubResource("RectangleShape2D_cxjvg")
 [node name="Camera2D" type="Camera2D" parent="." unique_id=292405891]
 
 [node name="Labels" parent="." unique_id=787844091 instance=ExtResource("5_ahym8")]
+
+[node name="CanvasLayer" parent="." unique_id=2121916254 instance=ExtResource("6_sicb3")]
+process_mode = 3
+follow_viewport_scale = 571.745

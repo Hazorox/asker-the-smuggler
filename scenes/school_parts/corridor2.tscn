@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://qy3xt5ybucb8"]
+
+[ext_resource type="Script" uid="uid://bw2dveb5m5ts4" path="res://scenes/school_parts/corridor2.gd" id="1_h145v"]
+[ext_resource type="PackedScene" uid="uid://bv0na681nyquq" path="res://scenes/trader/trader.tscn" id="2_b5isk"]
+[ext_resource type="PackedScene" uid="uid://7qbkt763filo" path="res://scenes/background.tscn" id="2_p4cb7"]
+[ext_resource type="PackedScene" uid="uid://lt1w7anrq6pe" path="res://scenes/characters/security_gaurd.tscn" id="4_1372x"]
+[ext_resource type="PackedScene" uid="uid://c0go144isim16" path="res://scenes/ui/Lables.tscn" id="5_yn40k"]
+[ext_resource type="PackedScene" uid="uid://dt1uj8gkdl1h6" path="res://scenes/dialog/canvas_layer.tscn" id="6_0kp2x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cxjvg"]
+size = Vector2(2560, 10)
+
+[node name="Corridor2" type="Node2D" unique_id=1465989484 groups=["obs"]]
+script = ExtResource("1_h145v")
+
+[node name="Background" parent="." unique_id=1935634795 instance=ExtResource("2_p4cb7")]
+
+[node name="Characters" type="Node2D" parent="." unique_id=305545911]
+
+[node name="trader" parent="Characters" unique_id=1547958870 instance=ExtResource("2_b5isk")]
+unique_name_in_owner = true
+position = Vector2(1030, 650)
+scale = Vector2(4.84, 4.84)
+
+[node name="SecurityGaurd" parent="Characters" unique_id=885318586 instance=ExtResource("4_1372x")]
+position = Vector2(401, 481)
+scale = Vector2(-4, 4)
+
+[node name="Ground" type="StaticBody2D" parent="." unique_id=707069634]
+position = Vector2(1214, 721)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground" unique_id=1057216102]
+shape = SubResource("RectangleShape2D_cxjvg")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=292405891]
+
+[node name="Labels" parent="." unique_id=787844091 instance=ExtResource("5_yn40k")]
+
+[node name="CanvasLayer" parent="." unique_id=2121916254 instance=ExtResource("6_0kp2x")]
+process_mode = 3
+follow_viewport_scale = 571.745

@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://bdwefpshwxy2t"]
+
+[ext_resource type="Texture2D" uid="uid://dm313bxwvvmyl" path="res://assets/food/burger.png" id="1_ib8jl"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nfrx5"]
+radius = 16.03122
+
+[node name="HuntFood" type="StaticBody2D" unique_id=1344428677]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=788851575]
+texture = ExtResource("1_ib8jl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1315901184]
+shape = SubResource("CircleShape2D_nfrx5")

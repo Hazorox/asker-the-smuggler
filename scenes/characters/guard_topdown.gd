@@ -14,6 +14,7 @@ func _physics_process(_delta: float) -> void:
 	# Don't run untill player exists
 	if player==null:
 		player=get_tree().get_first_node_in_group("asker")
+		print(player)
 		return
 	
 	# Track Asker, The player

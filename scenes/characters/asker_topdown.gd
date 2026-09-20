@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-@export var SPEED = 3.0
+@export var SPEED = 300.0
 @export var sprintAmount = 150
 @onready var sprite : AnimatedSprite2D = $AnimatedSprite2D
 

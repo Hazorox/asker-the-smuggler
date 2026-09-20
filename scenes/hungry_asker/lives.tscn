@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://bgw8cppsblygd"]
+
+[ext_resource type="Script" uid="uid://c3j0sakvjnawm" path="res://scenes/hungry_asker/lives.gd" id="1_5v0h3"]
+[ext_resource type="Texture2D" uid="uid://cgbb0j8lshy5" path="res://assets/Player/life1.png" id="1_bmvus"]
+
+[node name="Lives" type="Node2D" unique_id=1441683795]
+scale = Vector2(2.5, 2.5)
+script = ExtResource("1_5v0h3")
+
+[node name="Life" type="Sprite2D" parent="." unique_id=816380858]
+position = Vector2(75, 0)
+texture = ExtResource("1_bmvus")
+
+[node name="Life2" type="Sprite2D" parent="." unique_id=260897366]
+position = Vector2(100, 0)
+texture = ExtResource("1_bmvus")
+
+[node name="Life3" type="Sprite2D" parent="." unique_id=897174298]
+position = Vector2(125, 0)
+texture = ExtResource("1_bmvus")

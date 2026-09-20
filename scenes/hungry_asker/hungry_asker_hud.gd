@@ -7,4 +7,4 @@ func _ready() -> void:
 	pass 
 
 func update_score(n : int) -> void:
-	score.text = "Score" + str(n)
+	score.text = "Score: " + str(n)

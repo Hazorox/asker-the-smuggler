@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://5m4bibyxokun" path="res://scenes/hungry_asker/hungry_asker_main.gd" id="1_vou42"]
 [ext_resource type="PackedScene" uid="uid://cv26w18ns8keq" path="res://scenes/hungry_asker/hungry_asker_hud.tscn" id="2_pabqu"]
 [ext_resource type="PackedScene" uid="uid://lma64126gl3j" path="res://scenes/askar/hungry_asker.tscn" id="2_xt6pc"]
+[ext_resource type="PackedScene" uid="uid://bgw8cppsblygd" path="res://scenes/hungry_asker/lives.tscn" id="5_unsko"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xt6pc"]
 size = Vector2(10, 730)
@@ -55,6 +56,9 @@ autostart = true
 
 [node name="BombTimer" type="Timer" parent="." unique_id=840472907]
 autostart = true
+
+[node name="Lives" parent="." unique_id=1441683795 instance=ExtResource("5_unsko")]
+position = Vector2(920, 37)
 
 [connection signal="timeout" from="FoodTimer" to="." method="_on_food_timer_timeout"]
 [connection signal="timeout" from="BombTimer" to="." method="_on_bomb_timer_timeout"]

@@ -15,7 +15,7 @@ func _ready() -> void:
 	var random_x := rng.randi_range(0, width)
 	var random_y := rng.randi_range(-150, -50)
 	position += Vector2(random_x, random_y)
-	speed = 100
+	speed = 150
 	rotation_speed = rng.randi_range(20, 100)
 	direction_x = rng.randf_range(-1, 1)
 

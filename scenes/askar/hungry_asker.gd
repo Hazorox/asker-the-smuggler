@@ -15,10 +15,9 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func _on_fruit_detection_area_area_entered(area: Area2D) -> void:
-	if area.is_in_group("Food"):
+	if area.is_in_group("food"):
 		area.queue_free()
 		main.score += 1
 	elif area.is_in_group("Bomb"):
-		print("got bombed")
 		area.queue_free()
 		HungryAskerGlobal.lives -= 1

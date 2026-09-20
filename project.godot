@@ -48,8 +48,8 @@ folder_colors={
 asker=""
 security=""
 obs=""
-Food=""
 Bomb=""
+food=""
 
 [gui]
 

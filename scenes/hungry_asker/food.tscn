@@ -13,7 +13,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_3qxw8"]
 radius = 16.03122
 
-[node name="Food" type="Area2D" unique_id=1477477706]
+[node name="Food" type="Area2D" unique_id=1477477706 groups=["food"]]
 scale = Vector2(3, 3)
 script = ExtResource("1_3qxw8")
 food_types = Array[Texture]([ExtResource("2_alfa5"), ExtResource("3_dm0w8"), ExtResource("4_lw2i1"), ExtResource("5_awfl1"), ExtResource("6_xpm1c"), ExtResource("7_p2kyh"), ExtResource("8_g2eua"), ExtResource("1_qdld4")])

@@ -132,11 +132,6 @@ bg_color = Color(0.9019608, 0.64705884, 0.18039216, 1)
 corner_radius_top_right = 32
 corner_radius_bottom_right = 32
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f2ajo"]
-bg_color = Color(0.9019608, 0.64705884, 0.18039216, 1)
-corner_radius_top_right = 32
-corner_radius_bottom_right = 32
-
 [node name="Options" type="Control" unique_id=1450150018]
 layout_mode = 3
 anchors_preset = 15
@@ -437,34 +432,4 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_qe4tn")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_025dt")
 theme_override_styles/hover = SubResource("StyleBoxFlat_kmbin")
 text = "W"
-script = SubResource("GDScript_025dt")
-
-[node name="extra_idk" type="PanelContainer" parent="hsplit/right" unique_id=2092944969]
-custom_minimum_size = Vector2(0, 72)
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_f2ajo")
-
-[node name="HBoxContainer" type="HBoxContainer" parent="hsplit/right/extra_idk" unique_id=1569911435]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="hsplit/right/extra_idk/HBoxContainer" unique_id=1505559021]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 32
-text = "extra_idk"
-label_settings = SubResource("LabelSettings_ac427")
-horizontal_alignment = 1
-
-[node name="up" type="Button" parent="hsplit/right/extra_idk/HBoxContainer" unique_id=425565397]
-custom_minimum_size = Vector2(128, 72)
-layout_mode = 2
-size_flags_horizontal = 6
-size_flags_vertical = 4
-size_flags_stretch_ratio = 0.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 52
-theme_override_styles/normal = SubResource("StyleBoxFlat_qe4tn")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_025dt")
-theme_override_styles/hover = SubResource("StyleBoxFlat_kmbin")
-text = "w"
 script = SubResource("GDScript_025dt")

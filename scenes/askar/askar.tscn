@@ -161,7 +161,8 @@ radius = 4.0
 height = 26.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3itqv"]
-height = 46.0
+radius = 9.0
+height = 49.0
 
 [node name="Asker" type="CharacterBody2D" unique_id=1547958870]
 script = ExtResource("1_iju3k")

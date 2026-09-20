@@ -6,7 +6,7 @@ const CAM_START_POS := Vector2(640, 360)
 const SCORE_MODIFIER: int = 10
 const START_SPEED : float = 5.0
 const MAX_SPEED : int = 25
-const SPEED_MODIFIER : int = 5000
+const SPEED_MODIFIER : float = 5000
 const MAX_DIFFICULTY : int = 2
 const MIN_OBSTACLE_GAP: int = 700
 const MAX_OBSTACLE_GAP: int = 1200
@@ -24,7 +24,7 @@ var bin_scene := preload("res://scenes/trash_bin.tscn")
 var obstacle_types := [banana_scene, bin_scene]
 var obstacles : Array
 var last_obs
-var difficulty
+var difficulty : int
 
 func _ready() -> void:
 	screen_size = get_window().size
@@ -110,3 +110,4 @@ func game_over() -> void:
 		get_tree().paused = true
 		var gameover_menu = game_oveer_scene.instantiate()
 		add_child(gameover_menu)
+	

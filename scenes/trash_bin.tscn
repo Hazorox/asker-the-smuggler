@@ -6,7 +6,7 @@
 size = Vector2(40, 46)
 
 [node name="TrachBin" type="Area2D" unique_id=460936676 groups=["obs"]]
-scale = Vector2(3, 3)
+scale = Vector2(2, 2)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1496700956]
 texture = ExtResource("1_q36op")

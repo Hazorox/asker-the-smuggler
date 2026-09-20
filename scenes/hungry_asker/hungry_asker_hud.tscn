@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://cv26w18ns8keq"]
+
+[ext_resource type="Script" uid="uid://dv0e23ov47g5l" path="res://scenes/hungry_asker/hungry_asker_hud.gd" id="1_7d6dg"]
+
+[node name="HungryAskerHUD" type="CanvasLayer" unique_id=109818877]
+script = ExtResource("1_7d6dg")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=2037711873]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 120.0
+grow_horizontal = 2
+theme_override_constants/separation = 900
+
+[node name="Score" type="Label" parent="HBoxContainer" unique_id=992249486]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Score: "

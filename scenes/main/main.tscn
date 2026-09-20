@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://1nu5wlarpkig"]
+[gd_scene format=3 uid="uid://c5v5wlest1s48"]
 
 [ext_resource type="Texture2D" uid="uid://c1brcpe5mbyag" path="res://assets/main_menu_pizza.png" id="1_iuonh"]
 [ext_resource type="Script" uid="uid://bywh4opbfgeqg" path="res://scenes/main/menu.gd" id="1_k2fmo"]

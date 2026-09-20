@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://b8k3jldfe64o7"]
+
+[ext_resource type="Texture2D" uid="uid://8b8p7mt77x4w" path="res://assets/backgrounds/ATS(The Corridor).png" id="1_uw8uq"]
+[ext_resource type="Script" uid="uid://5m4bibyxokun" path="res://scenes/hungry_asker/hungry_asker_main.gd" id="1_vou42"]
+[ext_resource type="PackedScene" uid="uid://cv26w18ns8keq" path="res://scenes/hungry_asker/hungry_asker_hud.tscn" id="2_pabqu"]
+[ext_resource type="PackedScene" uid="uid://lma64126gl3j" path="res://scenes/askar/hungry_asker.tscn" id="2_xt6pc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xt6pc"]
+size = Vector2(10, 730)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vou42"]
+size = Vector2(1300, 10)
+
+[node name="HungryAskerMain" type="Node2D" unique_id=524514416]
+script = ExtResource("1_vou42")
+
+[node name="HungryAskerHUD" parent="." unique_id=109818877 instance=ExtResource("2_pabqu")]
+unique_name_in_owner = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=711043490]
+scale = Vector2(4.9960938, 5.617187)
+texture = ExtResource("1_uw8uq")
+centered = false
+
+[node name="Borders" type="Node2D" parent="." unique_id=1108043248]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Borders" unique_id=1544443564]
+position = Vector2(0, 365)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/StaticBody2D" unique_id=2028094263]
+shape = SubResource("RectangleShape2D_xt6pc")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Borders" unique_id=205333924]
+position = Vector2(1280, 365)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/StaticBody2D2" unique_id=1290202791]
+shape = SubResource("RectangleShape2D_xt6pc")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="Borders" unique_id=1269495871]
+position = Vector2(650, 720)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/StaticBody2D3" unique_id=801007111]
+shape = SubResource("RectangleShape2D_vou42")
+
+[node name="Food" type="Node2D" parent="." unique_id=467406182]
+
+[node name="Bombs" type="Node2D" parent="." unique_id=737211230]
+
+[node name="HungryAsker" parent="." unique_id=681721617 instance=ExtResource("2_xt6pc")]
+position = Vector2(421.00003, 445)
+
+[node name="FoodTimer" type="Timer" parent="." unique_id=1695571948]
+wait_time = 1.25
+autostart = true
+
+[node name="BombTimer" type="Timer" parent="." unique_id=840472907]
+autostart = true
+
+[connection signal="timeout" from="FoodTimer" to="." method="_on_food_timer_timeout"]
+[connection signal="timeout" from="BombTimer" to="." method="_on_bomb_timer_timeout"]

@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://lma64126gl3j"]
+
+[ext_resource type="Script" uid="uid://cjm52tae8ocv2" path="res://scenes/askar/hungry_asker.gd" id="1_4dvl7"]
+[ext_resource type="Texture2D" uid="uid://c8pv0b5q36j8q" path="res://assets/characters/askar/HungryAsker.png" id="1_pwkw0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4dvl7"]
+size = Vector2(11, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pwkw0"]
+size = Vector2(13, 14)
+
+[node name="HungryAsker" type="CharacterBody2D" unique_id=681721617]
+scale = Vector2(6, 6)
+script = ExtResource("1_4dvl7")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=680124965]
+position = Vector2(1, -11)
+texture = ExtResource("1_pwkw0")
+vframes = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2483602]
+position = Vector2(-0.5, -6)
+shape = SubResource("RectangleShape2D_4dvl7")
+debug_color = Color(1.92523e-06, 0.6497394, 0.14391148, 0.41960785)
+
+[node name="FruitDetectionArea" type="Area2D" parent="." unique_id=1339953453]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FruitDetectionArea" unique_id=299728909]
+position = Vector2(-0.5, -6)
+shape = SubResource("RectangleShape2D_pwkw0")
+debug_color = Color(0.9499913, 0, 0.57318664, 0.41960785)

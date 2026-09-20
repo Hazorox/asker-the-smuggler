@@ -1,0 +1,97 @@
+[gd_scene format=3 uid="uid://dhad6x0pbt7k6"]
+
+[sub_resource type="GDScript" id="GDScript_nfrx5"]
+script/source = "extends Control
+
+@onready var buttons : Array[Button] = [$VSplitContainer/Button,$VSplitContainer/Button2]
+var focused := 0
+func _ready() -> void:
+	buttons[focused].grab_focus()
+
+func _process(_delta: float) -> void:
+	if Input.is_action_just_pressed(\"down\") or Input.is_action_just_pressed(\"up\"):
+		if focused ==0:
+			buttons[1].grab_focus()
+			focused=1
+		else:
+			buttons[0].grab_focus()
+			focused=0
+
+func _on_button_pressed() -> void:
+	# Hide and unpause
+	visible=false
+	get_tree().paused=false
+
+
+func _on_button_2_pressed() -> void:
+	# Change scene and unpause
+	get_tree().paused = false
+	get_tree().change_scene_to_file(\"res://scenes/main/main.tscn\")
+"
+
+[sub_resource type="LabelSettings" id="LabelSettings_nfrx5"]
+font_size = 96
+outline_size = 16
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Pause" type="Control" unique_id=957670348]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = SubResource("GDScript_nfrx5")
+
+[node name="Label" type="Label" parent="." unique_id=894425352]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -173.0
+offset_top = 148.0
+offset_right = 173.0
+offset_bottom = 235.0
+grow_horizontal = 2
+text = "PAUSED"
+label_settings = SubResource("LabelSettings_nfrx5")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1038840392]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=2031839702]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.5019608)
+
+[node name="VSplitContainer" type="VSplitContainer" parent="." unique_id=1208762239]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_right = 200.0
+offset_bottom = 217.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 48
+
+[node name="Button" type="Button" parent="VSplitContainer" unique_id=23634011]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 64
+text = "BACK"
+
+[node name="Button2" type="Button" parent="VSplitContainer" unique_id=790889105]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 64
+text = "Main Menu"
+
+[connection signal="pressed" from="VSplitContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="VSplitContainer/Button2" to="." method="_on_button_2_pressed"]

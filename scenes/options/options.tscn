@@ -64,27 +64,36 @@ script/source = "extends Button
 
 @onready var active :=false
 func _ready()->void:
+	# Connect on press to change keybind
 	pressed.connect(on_pressed)
+	
+	# Fetch the keybinds for each key for the default text assigned
 	for action in InputMap.get_actions():
 		if action==name:
 			var events := InputMap.action_get_events(action)
 			if events.size()>0:
 				var e := events[0]
 				if e is InputEventKey:
+					
+					# Fetch the physical text keycode
 					text = (e as InputEventKey).as_text_physical_keycode()
 			break
 
 func on_pressed()->void:
+	# Flip active and await input through _input()
 	text=\"?\"
 	active = not active
 
 func _input(event: InputEvent) -> void:
+	# Only function if pressed
 	if active:
 		if (event is InputEventKey || (event is InputEventMouseButton && event.pressed )):
-			if event.keycode == KEY_ESCAPE:
+			# Pass if ESCAPE
+			if event is InputEventMouseButton or event.keycode == KEY_ESCAPE :
 				active=false
 				text= InputMap.action_get_events(name)[0].as_text().trim_suffix(\" - Physical\")
 				return
+			# Override the keybind
 			InputMap.action_erase_events(name)
 			InputMap.action_add_event(name,event)
 			text=event.as_text()
@@ -282,22 +291,22 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_kmbin")
 text = "W"
 script = SubResource("GDScript_025dt")
 
-[node name="interact" type="PanelContainer" parent="hsplit/left" unique_id=1088111710]
+[node name="jump" type="PanelContainer" parent="hsplit/left" unique_id=1088111710]
 custom_minimum_size = Vector2(0, 72)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_nfrx5")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="hsplit/left/interact" unique_id=706436498]
+[node name="HBoxContainer" type="HBoxContainer" parent="hsplit/left/jump" unique_id=706436498]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="hsplit/left/interact/HBoxContainer" unique_id=1673329523]
+[node name="Label" type="Label" parent="hsplit/left/jump/HBoxContainer" unique_id=1673329523]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "INTERACT"
+text = "JUMP"
 label_settings = SubResource("LabelSettings_0hvcy")
 horizontal_alignment = 1
 
-[node name="interact" type="Button" parent="hsplit/left/interact/HBoxContainer" unique_id=1478215245]
+[node name="jump" type="Button" parent="hsplit/left/jump/HBoxContainer" unique_id=1478215245]
 custom_minimum_size = Vector2(128, 72)
 layout_mode = 2
 size_flags_horizontal = 6

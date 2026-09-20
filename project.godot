@@ -18,6 +18,7 @@ config/icon="res://assets/icon.png"
 [autoload]
 
 CaughtDetection="*uid://b125j1j4xgxnb"
+Globals="*uid://bqtnubwbq3tcf"
 
 [display]
 

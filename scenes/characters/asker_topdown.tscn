@@ -196,7 +196,7 @@ animations = [{
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nfrx5"]
 
-[node name="AskerTopdown" type="CharacterBody2D" unique_id=298510596]
+[node name="AskerTopdown" type="CharacterBody2D" unique_id=298510596 groups=["asker"]]
 script = ExtResource("1_ilh2b")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1643566593]

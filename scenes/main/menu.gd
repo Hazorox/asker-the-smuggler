@@ -1,6 +1,6 @@
 extends Control
 
-@onready var buttons :Array[Button]= [$start,$option,$exit]
+@onready var buttons :Array[Button]= [$start,$plant,$option]
 var focused := 0
 
 func _process(delta: float) -> void:

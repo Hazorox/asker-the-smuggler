@@ -2,11 +2,14 @@
 
 [ext_resource type="Texture2D" uid="uid://b38v0jrmyhcq3" path="res://assets/banana.png" id="1_hilkf"]
 
-[node name="Banana" type="Area2D" unique_id=1873034105]
+[sub_resource type="CircleShape2D" id="CircleShape2D_hilkf"]
+radius = 16.492422
+
+[node name="Banana" type="Area2D" unique_id=1873034105 groups=["obs"]]
 scale = Vector2(3.5, 3.5)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2096659343]
 texture = ExtResource("1_hilkf")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1701491784]
-polygon = PackedVector2Array(-15, 10, -14, 12, -8, 12, -6, 11, -3, 8, -1, 6, 0, 2, 5, 8, 13, 10, 15, 7, 12, 3, 13, 0, 7, -4, 2, -9, -1, -9, -3, -4, -7, -3, -11, -2, -14, 1, -13, 5, -11, 4, -10, 5)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2006827235]
+shape = SubResource("CircleShape2D_hilkf")

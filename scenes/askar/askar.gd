@@ -2,7 +2,7 @@ class_name Asker
 extends CharacterBody2D
 
 const GRAVITY: int = 4200
-const JUMP_SPEED: int = -1000
+const JUMP_SPEED: int =  -1500 
 
 @onready var asker_animated_sprite: AnimatedSprite2D = $AskerAnimatedSprite
 
@@ -20,3 +20,5 @@ func _physics_process(delta: float) -> void:
 func _on_cuaght_detection_area_area_entered(area: Area2D) -> void:
 	if area.is_in_group("security"):
 		CaughtDetection.is_player_caught = false
+	if area.is_in_group("obs"):
+		CaughtDetection.is_player_caught = true

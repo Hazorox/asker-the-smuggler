@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dt1uj8gkdl1h6"]
 
 [ext_resource type="Script" uid="uid://d03xt46edalj5" path="res://scenes/dialog/canvas_layer.gd" id="1_ey3e0"]
-[ext_resource type="FontFile" uid="uid://c3ge01pd5rqim" path="res://assets/askar/determination.ttf" id="1_s6oxb"]
+[ext_resource type="FontFile" uid="uid://c3ge01pd5rqim" path="res://assets/fonts/determination.ttf" id="1_s6oxb"]
 [ext_resource type="AudioStream" uid="uid://b2v2bmtjpoyxu" path="res://assets/sounds/voice_sans.wav" id="3_sbv0p"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s7wsd"]
@@ -23,12 +23,14 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -218.0
+offset_top = -720.0
+offset_bottom = -502.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 30
 theme_override_constants/margin_right = 25
-theme_override_constants/margin_bottom = 30
+theme_override_constants/margin_bottom = 0
 
 [node name="Panel" type="Panel" parent="MarginContainer" unique_id=158945715]
 layout_mode = 2

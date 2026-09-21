@@ -1,0 +1,99 @@
+[gd_scene format=3 uid="uid://bl57g0pd40jpr"]
+
+[ext_resource type="Script" uid="uid://bywh4opbfgeqg" path="res://scenes/main/menu.gd" id="1_rmoel"]
+[ext_resource type="FontFile" uid="uid://cst2tvib54xqs" path="res://assets/title.ttf" id="2_8w1lc"]
+[ext_resource type="Texture2D" uid="uid://cmqmuk08jir16" path="res://assets/food/CrepeSandwich.png" id="3_apx0r"]
+[ext_resource type="Script" uid="uid://5qmt8au57tmf" path="res://scenes/nbc/start.gd" id="4_wgdi7"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_0hvcy"]
+font_size = 64
+
+[sub_resource type="LabelSettings" id="LabelSettings_nfrx5"]
+font = ExtResource("2_8w1lc")
+font_size = 96
+font_color = Color(0.9019608, 0.4862745, 0.18039216, 1)
+
+[sub_resource type="SystemFont" id="SystemFont_wgdi7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5buax"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7nwpt"]
+bg_color = Color(0.7058824, 0.03529412, 0.02745098, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k13oo"]
+bg_color = Color(0.91764706, 0.07058824, 0.05490196, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fd8gc"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="Main" type="Control" unique_id=284846191]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rmoel")
+
+[node name="line" type="Label" parent="." unique_id=1529572933]
+layout_mode = 0
+offset_left = 318.0
+offset_top = 318.0
+offset_right = 948.0
+offset_bottom = 376.0
+text = "Deal With it"
+label_settings = SubResource("LabelSettings_0hvcy")
+horizontal_alignment = 1
+
+[node name="title" type="Label" parent="." unique_id=528884008]
+layout_mode = 0
+offset_left = 89.0
+offset_top = 214.0
+offset_right = 1217.0
+offset_bottom = 310.0
+text = "No One Chooses the difficulty"
+label_settings = SubResource("LabelSettings_nfrx5")
+horizontal_alignment = 1
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1976410164]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1219743842]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.101960786, 0.101960786, 0.101960786, 1)
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer" unique_id=1130537384]
+offset_left = 453.0
+offset_top = 300.0
+offset_right = 822.0
+offset_bottom = 669.0
+texture = ExtResource("3_apx0r")
+
+[node name="start" type="Button" parent="." unique_id=946713496]
+layout_mode = 0
+offset_left = 476.0
+offset_top = 426.0
+offset_right = 803.0
+offset_bottom = 652.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0.9019608, 0.67058825, 0.18039216, 1)
+theme_override_colors/font_pressed_color = Color(0.64451134, 0.4530359, 0.086801805, 1)
+theme_override_colors/font_hover_color = Color(0.9019608, 0.64705884, 0.18039216, 1)
+theme_override_fonts/font = SubResource("SystemFont_wgdi7")
+theme_override_font_sizes/font_size = 72
+theme_override_styles/normal = SubResource("StyleBoxFlat_5buax")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_7nwpt")
+theme_override_styles/hover = SubResource("StyleBoxFlat_k13oo")
+theme_override_styles/focus = SubResource("StyleBoxFlat_fd8gc")
+text = "Ok :("
+script = ExtResource("4_wgdi7")
+
+[connection signal="pressed" from="start" to="start" method="_on_pressed"]

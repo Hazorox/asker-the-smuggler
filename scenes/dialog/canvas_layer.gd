@@ -27,9 +27,30 @@ var current = STATE.READY
 func _ready() -> void:
 	hide_box()
 	print("ready")
-	add_queue("test l jnlj kjsd kjsd jls dkjsd skfl n fljs f ds ", "res://assets/dialog/askar.png", 2)
-	add_choice_queue(["Yes", "No"], func(i): print("picked index ", i))
-	add_queue("test3 jdvnsoeipvmf rvkjn fvlkjne lkkern ljesnf kjlndkj ned jn", "res://assets/dialog/askar.png", 2)
+	roll_loop()
+	
+func roll_loop():
+	while true:
+		if queue.is_empty() and current == STATE.READY:
+			roll()
+		await get_tree().create_timer(1.0).timeout
+		
+func roll():
+	var r = randi_range(1, 40)
+	if r == 6:
+		add_queue("Try to catch me, old head.", "res://assets/dialog/askar.png", 2)
+		add_queue("Iam goin to kill u, askar", "res://assets/dialog/securitygaurdavater.png", 3)
+		
+	if r == 15:
+		add_queue("come back here u maggot", "res://assets/dialog/securitygaurdavater.png", 3)
+	
+	if r == 23:
+		add_queue("Who would u like me to send u", "res://assets/dialog/securitygaurdavater.png", 3)
+		add_choice_queue(["Mr. Atef (the princeple)", "Mrs. Essra (the Dorm keeper)", "Me"],func(i): print("picked index ", i))
+		add_queue("ur choices don't matter to me, I will punish u myself anyways", "res://assets/dialog/securitygaurdavater.png", 3)
+
+func is_active():
+	return current != STATE.READY
 	
 func hide_box() -> void:
 	panel.hide()
@@ -41,6 +62,7 @@ func hide_box() -> void:
 	
 func show_box() -> void:
 	panel.show()
+	box_bg.show()
 	start.text = "*"
 	sprite.show()
 
@@ -129,12 +151,13 @@ func play_audio() -> void:
 func _process(delta: float) -> void:
 	match current:
 		STATE.READY:
-			var entry = queue.pop_front()
-			match entry.type:
-				"text":
-					add_text(entry)
-				"choice":
-					add_choice(entry)
+			if !queue.is_empty():
+				var entry = queue.pop_front()
+				match entry.type:
+					"text":
+						add_text(entry)
+					"choice":
+						add_choice(entry)
 		STATE.READING:
 			if Input.is_action_just_pressed("ui_accept"):
 				textbox.visible_ratio = 1.0

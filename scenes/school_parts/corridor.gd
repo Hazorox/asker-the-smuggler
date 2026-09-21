@@ -12,7 +12,7 @@ const MIN_OBSTACLE_GAP: int = 700
 const MAX_OBSTACLE_GAP: int = 1200
 @onready var dialog: CanvasLayer = $CanvasLayer
 
-@onready var pause_menu_scene := preload("res://scenes/ui/pause_menu.tscn")
+@onready var pause_menu = $PauseMenu
 @onready var game_oveer_scene := preload("res://scenes/ui/game_over_screen.tscn")
 
 var screen_size : Vector2i
@@ -107,8 +107,7 @@ func hit_obs(body):
 func pause_game() -> void:
 	if Input.is_action_just_pressed("pause"):
 		get_tree().paused = true
-		var pause_menu = pause_menu_scene.instantiate()
-		add_child(pause_menu)
+		pause_menu.visible=true
 
 func game_over() -> void:
 	if CaughtDetection.is_player_caught == true:

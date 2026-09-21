@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://lt1w7anrq6pe" path="res://scenes/characters/security_gaurd.tscn" id="4_cxjvg"]
 [ext_resource type="PackedScene" uid="uid://c0go144isim16" path="res://scenes/ui/Lables.tscn" id="5_ahym8"]
 [ext_resource type="PackedScene" uid="uid://dt1uj8gkdl1h6" path="res://scenes/dialog/canvas_layer.tscn" id="6_sicb3"]
+[ext_resource type="PackedScene" uid="uid://db4tjx5ly3nle" path="res://scenes/ui/pause_menu.tscn" id="7_73kwc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cxjvg"]
 size = Vector2(2560, 10)
@@ -39,3 +40,5 @@ shape = SubResource("RectangleShape2D_cxjvg")
 [node name="CanvasLayer" parent="." unique_id=2121916254 instance=ExtResource("6_sicb3")]
 process_mode = 3
 follow_viewport_scale = 571.745
+
+[node name="PauseMenu" parent="." unique_id=804126370 instance=ExtResource("7_73kwc")]

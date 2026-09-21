@@ -8,4 +8,5 @@ func _physics_process(_delta: float) -> void:
 	if HungryAskerGlobal.lives == 1:
 		$Life2.hide()
 	if HungryAskerGlobal.lives == 0:
-		get_tree().change_scene_to_file("res://scenes/ui/hungry_asker_gameover.tscn")
+		HungryAskerGlobal.lives=3
+		get_tree().change_scene_to_file("res://scenes/main/main.tscn")

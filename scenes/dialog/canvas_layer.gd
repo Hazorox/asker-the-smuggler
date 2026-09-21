@@ -143,7 +143,7 @@ func change_state(next) -> void:
 			
 func play_audio() -> void:
 	while current == STATE.READING:
-		audio.play()
+		await audio.play()
 		var t = pow(randf(), 5)
 		var random = lerp(0.05, 0.3, t)
 		await get_tree().create_timer(random).timeout

@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cv26w18ns8keq" path="res://scenes/hungry_asker/hungry_asker_hud.tscn" id="2_pabqu"]
 [ext_resource type="PackedScene" uid="uid://lma64126gl3j" path="res://scenes/askar/hungry_asker.tscn" id="2_xt6pc"]
 [ext_resource type="PackedScene" uid="uid://bgw8cppsblygd" path="res://scenes/hungry_asker/lives.tscn" id="5_unsko"]
+[ext_resource type="PackedScene" uid="uid://db4tjx5ly3nle" path="res://scenes/ui/pause_menu.tscn" id="6_se3yc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xt6pc"]
 size = Vector2(10, 730)
@@ -59,6 +60,8 @@ autostart = true
 
 [node name="Lives" parent="." unique_id=1441683795 instance=ExtResource("5_unsko")]
 position = Vector2(920, 37)
+
+[node name="PauseMenu" parent="." unique_id=804126370 instance=ExtResource("6_se3yc")]
 
 [connection signal="timeout" from="FoodTimer" to="." method="_on_food_timer_timeout"]
 [connection signal="timeout" from="BombTimer" to="." method="_on_bomb_timer_timeout"]

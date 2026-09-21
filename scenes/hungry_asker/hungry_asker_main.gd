@@ -4,7 +4,7 @@ extends Node2D
 var food_scene : PackedScene = load("res://scenes/hungry_asker/food.tscn")
 var bomb_scene : PackedScene = load("res://scenes/hungry_asker/bomb.tscn")
 var last_difficulty_score : int = 0
-
+@onready var pause = $PauseMenu
 @onready var HUD : HungryAskerHUD = %HungryAskerHUD
 @onready var food_timer: Timer = $FoodTimer
 @onready var bomb_timer: Timer = $BombTimer
@@ -21,6 +21,9 @@ func _ready() -> void:
 	
 
 func _process(_delta: float) -> void:
+	if Input.is_action_just_pressed("pause"):
+		pause.visible = true
+		get_tree().paused = true
 	increase_difficulty()
 
 func increase_difficulty() -> void:

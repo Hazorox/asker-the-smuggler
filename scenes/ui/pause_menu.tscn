@@ -20,6 +20,7 @@ load_path = "res://.godot/imported/FalafelSandwich.png-70cfd1ff1dfb9fe663a84e903
 
 [node name="PauseMenu" type="CanvasLayer" unique_id=804126370]
 process_mode = 3
+visible = false
 script = ExtResource("1_6tw0m")
 
 [node name="Control" type="Control" parent="." unique_id=2052338572]

@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-@export var SPEED = 200.0
+@export var SPEED = 150.0
 var player:CharacterBody2D = null
 @onready var sprite:AnimatedSprite2D = $AnimatedSprite2D
 @onready var collision :Area2D = $catchArea

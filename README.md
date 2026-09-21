@@ -35,7 +35,7 @@ cd asker-the-smuggler
 ```
 # Note
 some UI buttons work using the keyboard and some work using the mouse
-
+Multiple scenes, especially the corridor, were made by hand using pixil art using lapse 
 # AI-Declaration (Hazoro):
 Help with debugging issues related accessing children that are to-be removed or are already removed
 

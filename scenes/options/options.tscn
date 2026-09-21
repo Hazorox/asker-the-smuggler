@@ -429,7 +429,7 @@ text = "RUN"
 label_settings = SubResource("LabelSettings_0hvcy")
 horizontal_alignment = 1
 
-[node name="run" type="Button" parent="hsplit/right/interact/HBoxContainer" unique_id=999559937]
+[node name="sprint" type="Button" parent="hsplit/right/interact/HBoxContainer" unique_id=999559937]
 custom_minimum_size = Vector2(128, 72)
 layout_mode = 2
 size_flags_horizontal = 6

@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-@export var SPEED = 150.0
+@export var SPEED = 200.0
 var player:CharacterBody2D = null
 @onready var sprite:AnimatedSprite2D = $AnimatedSprite2D
 @onready var collision :Area2D = $catchArea
@@ -9,12 +9,11 @@ func _ready()->void:
 	# get player from global group
 	player = get_tree().get_first_node_in_group("asker")
 	collision.body_entered.connect(catch)
-func _physics_process(_delta: float) -> void:
+func _physics_process(delta: float) -> void:
 
 	# Don't run untill player exists
 	if player==null:
 		player=get_tree().get_first_node_in_group("asker")
-		print(player)
 		return
 	
 	# Track Asker, The player

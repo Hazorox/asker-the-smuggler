@@ -4,11 +4,11 @@
 [ext_resource type="AudioStream" uid="uid://dnh8ujxcnjcxi" path="res://assets/eat.mp3" id="2_bn2ch"]
 
 [sub_resource type="GDScript" id="GDScript_l3cfh"]
-script/source = "extends StaticBody2D
-
+script/source = "extends Area2D
+signal eaten
 @onready var sprite : Sprite2D = $Sprite2D
 @onready var audio := $eatSound
-var textures = [\"applepie\",\"burger\",\"cookie\",\"CrepeSandwich\",\"donut\",\"FalafelAndVeggies\",\"hotdog\",\"pancake\"]
+var textures = [\"applepie\",\"burger\",\"cookie\",\"CrepeSandwich\",\"donut\",\"hotdog\",\"pancake\"]
 @onready var texture = textures.pick_random()
 
 func _ready() -> void:
@@ -18,6 +18,7 @@ func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group(\"asker\"):
 		Globals.score+=1
 		audio.play()
+		eaten.emit()
 		queue_free()
 "
 
@@ -25,6 +26,7 @@ func _on_body_entered(body: Node2D) -> void:
 radius = 16.03122
 
 [node name="HuntFood" type="Area2D" unique_id=1859760947]
+scale = Vector2(2, 2)
 script = SubResource("GDScript_l3cfh")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=788851575]

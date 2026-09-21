@@ -54,6 +54,7 @@ func _process(_delta: float) -> void:
 			obstacles.erase(obs)
 			obs.queue_free()
 	
+	
 
 func new_game() -> void:
 	score = 0

@@ -16,9 +16,10 @@ func _ready() -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group(\"asker\"):
-		Globals.score+=1
 		audio.play()
+		Globals.score+=1
 		eaten.emit()
+		await audio.finished
 		queue_free()
 "
 

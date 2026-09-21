@@ -5,6 +5,7 @@ A Game by [hazoro](https://github.com/hazorox) - [AboEl5yr](https://github.com/A
 2D Godot game live at [itch.io](https://hazoro.itch.io/asker-the-smuggler)
 
 # Game Idea (Backstory)
+--BASED ON A TRUE STORY OF OUR SCHOOLMATE ASKER--
 You are a high schooler in a boarding school who got poisoned from dorm food..Although fast food is banned, you decide to smuggle food to eat freely.
 
 You start getting chased by security in the first game mode "RUN" ( Mostly by Aboel5yr )
